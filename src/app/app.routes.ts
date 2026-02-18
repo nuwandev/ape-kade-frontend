@@ -9,6 +9,11 @@ import { Overview } from './page/dashboard/overview/overview';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
     path: 'dashboard',
     component: Dashboard,
     children: [
@@ -17,15 +22,15 @@ export const routes: Routes = [
         component: Overview,
       },
       {
-        path: 'customer',
+        path: 'customers',
         component: Customer,
       },
       {
-        path: 'item',
+        path: 'items',
         component: Item,
       },
       {
-        path: 'order',
+        path: 'orders',
         component: Order,
       },
     ],
