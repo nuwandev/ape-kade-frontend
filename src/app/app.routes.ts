@@ -5,12 +5,17 @@ import { Register } from './page/register/register';
 import { Customer } from './page/dashboard/customer/customer';
 import { Item } from './page/dashboard/item/item';
 import { Order } from './page/dashboard/order/order';
+import { Overview } from './page/dashboard/overview/overview';
 
 export const routes: Routes = [
   {
     path: 'dashboard',
     component: Dashboard,
     children: [
+      {
+        path: '',
+        component: Overview,
+      },
       {
         path: 'customer',
         component: Customer,
