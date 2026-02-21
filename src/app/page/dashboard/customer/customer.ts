@@ -1,15 +1,15 @@
 import { Component, inject, signal, computed } from '@angular/core';
-import { CommonModule, DatePipe, DecimalPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { toObservable } from '@angular/core/rxjs-interop';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, of, switchMap, tap } from 'rxjs';
 import { PageResponse, TCustomer } from 'types/index';
 
 @Component({
   selector: 'app-customer',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, DecimalPipe, DatePipe],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './customer.html',
   styleUrl: './customer.css',
 })
@@ -26,6 +26,9 @@ export class Customer {
   currentEditId = signal<string | null>(null);
 
   customerResponse = signal<PageResponse<TCustomer> | null>(null);
+
+  isLoading = signal(false);
+  errorMessage = signal<string | null>(null);
 
   isEditMode = computed(() => !!this.currentEditId());
 
@@ -49,9 +52,29 @@ export class Customer {
       .pipe(
         debounceTime(400),
         distinctUntilChanged((prev, curr) => JSON.stringify(prev) === JSON.stringify(curr)),
-        switchMap(({ page, query }) => this.fetchData(page, query)),
+        tap(() => {
+          this.isLoading.set(true);
+          this.errorMessage.set(null);
+        }),
+        switchMap(({ page, query }) =>
+          this.fetchData(page, query).pipe(
+            catchError((err) => {
+              console.error('Terminal Connection Failed:', err);
+              this.errorMessage.set('Connection refused. Is the backend server running?');
+              this.isLoading.set(false);
+              return of(null);
+            }),
+          ),
+        ),
       )
-      .subscribe((res) => this.customerResponse.set(res));
+      .subscribe((res) => {
+        this.customerResponse.set(res);
+        this.isLoading.set(false);
+      });
+  }
+
+  retry() {
+    this.page.set(this.page());
   }
 
   private fetchData(page: number, query: string) {
