@@ -7,7 +7,12 @@
 >
   <span class="sr-only">Open sidebar</span>
   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h7"
+    />
   </svg>
 </button>
 
@@ -18,61 +23,189 @@
 >
   <div class="h-full px-5 py-8 flex flex-col bg-white">
     <a href="/" class="flex items-center gap-3 px-3 mb-10 group">
-      <div class="h-9 w-9 bg-slate-900 rounded-xl flex items-center justify-center text-white shadow-lg shadow-slate-200 group-hover:rotate-6 transition-transform">
-         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      <div
+        class="h-9 w-9 bg-slate-900 rounded-xl flex items-center justify-center text-white shadow-lg shadow-slate-200 group-hover:rotate-6 transition-transform"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+          />
+        </svg>
       </div>
       <span class="text-xl font-bold tracking-tight text-slate-900">ApeKade</span>
     </a>
 
     <nav class="flex-1 space-y-8 overflow-y-auto scrollbar-hide">
-      
+      <!-- Overview -->
       <div>
-        <label class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block">Store Overview</label>
+        <span
+          class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block"
+          >Overview</span
+        >
         <ul class="space-y-1.5">
           <li>
-            <a routerLink="/dashboard" routerLinkActive="bg-slate-900 text-white shadow-indigo-100" [routerLinkActiveOptions]="{exact: true}"
-               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
-              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a routerLink="/dashboard/orders" routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
-               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
-              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-              Orders
+            <a
+              routerLink="/dashboard"
+              routerLinkActive="bg-slate-900 text-white shadow-indigo-100"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group"
+            >
+              <svg
+                class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                />
+              </svg>
+              Overview
             </a>
           </li>
         </ul>
       </div>
 
+      <!-- Inventory -->
       <div>
-        <label class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block">Inventory</label>
+        <span
+          class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block"
+          >Inventory</span
+        >
         <ul class="space-y-1.5">
           <li>
-            <a routerLink="/dashboard/categories" routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
-               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
-              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 11h.01M7 15h.01M10 7h10M10 11h10M10 15h10" /></svg>
-              Categories
-            </a>
-          </li>
-          <li>
-            <a routerLink="/dashboard/items" routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
-               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
-              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+            <a
+              routerLink="/dashboard/items"
+              routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
+              class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group"
+            >
+              <svg
+                class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                />
+              </svg>
               Items
             </a>
           </li>
+          <li>
+            <a
+              routerLink="/dashboard/categories"
+              routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
+              class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group"
+            >
+              <svg
+                class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 7h.01M7 11h.01M7 15h.01M10 7h10M10 11h10M10 15h10"
+                />
+              </svg>
+              Categories
+            </a>
+          </li>
         </ul>
       </div>
 
+      <!-- Sales / Transactions -->
       <div>
-        <label class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block">CRM</label>
+        <span
+          class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block"
+          >Sales / Transactions</span
+        >
         <ul class="space-y-1.5">
           <li>
-            <a routerLink="/dashboard/customers" routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
-               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
-              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+            <a
+              routerLink="/dashboard/place-order"
+              routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
+              class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group"
+            >
+              <svg
+                class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                />
+              </svg>
+              Place Order
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/dashboard/order-history"
+              routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
+              class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group"
+            >
+              <svg
+                class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+              Order History
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Customers -->
+      <div>
+        <span
+          class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block"
+          >Customers</span
+        >
+        <ul class="space-y-1.5">
+          <li>
+            <a
+              routerLink="/dashboard/customers"
+              routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
+              class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group"
+            >
+              <svg
+                class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
               Customers
             </a>
           </li>
@@ -81,16 +214,27 @@
     </nav>
 
     <div class="mt-auto pt-6">
-      <div class="p-4 bg-slate-50 rounded-[2rem] border border-slate-100 flex items-center gap-3">
-        <div class="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-sm">
+      <div class="p-4 bg-slate-50 rounded-4xl border border-slate-100 flex items-center gap-3">
+        <div
+          class="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-sm"
+        >
           JD
         </div>
         <div class="flex-1 min-w-0">
           <p class="text-xs font-bold text-slate-900 truncate">John Doe</p>
-          <p class="text-[10px] text-slate-400 font-medium truncate uppercase tracking-tighter">Terminal Manager</p>
+          <p class="text-[10px] text-slate-400 font-medium truncate uppercase tracking-tighter">
+            Terminal Manager
+          </p>
         </div>
         <button class="p-2 text-slate-400 hover:text-red-500 transition-colors">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+            />
+          </svg>
         </button>
       </div>
     </div>

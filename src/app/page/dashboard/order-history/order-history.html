@@ -1,0 +1,111 @@
+<div class="h-full flex flex-col overflow-hidden bg-[#F8F9FB]">
+  
+  <header class="bg-white border-b border-slate-200 px-8 py-6 shrink-0">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-900">Order History</h1>
+        <p class="text-xs text-slate-400 font-medium mt-1">Search and manage every transaction in your system</p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 transition-all">
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Export CSV
+        </button>
+        <button routerLink="/dashboard/place-order" class="bg-slate-900 text-white px-5 py-2 rounded-xl text-xs font-bold shadow-lg shadow-slate-200 hover:bg-blue-600 transition-all">
+          Create New Order
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+      <div class="relative">
+        <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </span>
+        <input type="text" placeholder="ID, Customer, or SKU..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-blue-500/10 focus:bg-white transition-all">
+      </div>
+      
+      <select class="px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-600 outline-none focus:bg-white">
+        <option>All Statuses</option>
+        <option>Completed</option>
+        <option>Pending</option>
+        <option>Cancelled</option>
+      </select>
+
+      <select class="px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-600 outline-none focus:bg-white">
+        <option>Last 30 Days</option>
+        <option>Last 3 months</option>
+        <option>Full Year</option>
+        <option>Custom Range</option>
+      </select>
+
+      <div class="flex items-center gap-2">
+         <button class="flex-1 bg-blue-50 text-blue-600 py-2.5 rounded-xl text-xs font-bold hover:bg-blue-100 transition-all">Apply Filters</button>
+         <button class="px-3 py-2.5 text-slate-400 hover:text-slate-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 overflow-auto p-8">
+    <div class="bg-white border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-slate-50/50 border-b border-slate-100 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
+            <th class="px-8 py-5">Order Reference</th>
+            <th class="px-8 py-5">Customer Details</th>
+            <th class="px-8 py-5 text-center">Items</th>
+            <th class="px-8 py-5">Fulfillment</th>
+            <th class="px-8 py-5 text-right">Total Amount</th>
+            <th class="px-8 py-5 text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-50">
+          @for (item of [1,2,3,4,5,6,7,8]; track item) {
+          <tr class="group hover:bg-slate-50 transition-all">
+            <td class="px-8 py-5">
+              <span class="text-sm font-bold text-slate-900 block">#ORD-2026-{{item}}094</span>
+              <span class="text-[10px] text-slate-400 font-mono">Feb 21, 2026 • 09:41 AM</span>
+            </td>
+            <td class="px-8 py-5">
+              <div class="flex items-center gap-3">
+                <div class="h-8 w-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[10px] font-bold">JD</div>
+                <div>
+                  <p class="text-sm font-semibold text-slate-700">James D. Miller</p>
+                  <p class="text-[10px] text-slate-400">james@example.com</p>
+                </div>
+              </div>
+            </td>
+            <td class="px-8 py-5 text-center">
+              <span class="bg-slate-100 text-slate-600 text-[10px] font-bold px-2.5 py-1 rounded-lg">3 Items</span>
+            </td>
+            <td class="px-8 py-5">
+              <div class="flex items-center gap-1.5 text-emerald-600">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                <span class="text-[11px] font-bold uppercase tracking-widest">Completed</span>
+              </div>
+            </td>
+            <td class="px-8 py-5 text-right font-mono font-black text-slate-900">$1,420.00</td>
+            <td class="px-8 py-5 text-center">
+              <button class="p-2 text-slate-400 hover:text-blue-600 transition-all hover:bg-blue-50 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="flex items-center justify-between mt-8 px-4">
+      <p class="text-xs text-slate-400 font-medium">Showing 1 to 10 of 2,401 entries</p>
+      <div class="flex items-center gap-2">
+        <button class="p-2 border border-slate-200 rounded-lg hover:bg-white text-slate-400 disabled:opacity-50">Prev</button>
+        <button class="h-8 w-8 bg-slate-900 text-white rounded-lg text-xs font-bold">1</button>
+        <button class="h-8 w-8 border border-slate-200 text-slate-600 rounded-lg text-xs font-bold hover:bg-white">2</button>
+        <button class="h-8 w-8 border border-slate-200 text-slate-600 rounded-lg text-xs font-bold hover:bg-white">3</button>
+        <button class="p-2 border border-slate-200 rounded-lg hover:bg-white text-slate-400">Next</button>
+      </div>
+    </div>
+  </div>
+</div>

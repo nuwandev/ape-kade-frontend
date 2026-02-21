@@ -8,6 +8,7 @@ import { Order } from './page/dashboard/order/order';
 import { Overview } from './page/dashboard/overview/overview';
 import { Category } from './page/dashboard/category/category';
 import { PlaceOrder } from './page/dashboard/place-order/place-order';
+import { OrderHistory } from './page/dashboard/order-history/order-history';
 
 export const routes: Routes = [
   {
@@ -42,7 +43,11 @@ export const routes: Routes = [
       {
         path: 'place-order',
         component: PlaceOrder,
-      }
+      },
+      {
+        path: 'order-history',
+        component: OrderHistory,
+      },
     ],
   },
   {
