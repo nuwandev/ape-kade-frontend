@@ -7,7 +7,6 @@
           Manage registration details, salaries, and client locations.
         </p>
       </div>
-
       <div class="flex flex-wrap items-center gap-3">
         <div class="relative group">
           <span
@@ -26,14 +25,13 @@
             type="text"
             [value]="searchQuery()"
             (input)="onSearch($event)"
-            placeholder="Search..."
-            class="pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none w-full md:w-64 text-sm transition-all shadow-sm placeholder:text-slate-400"
+            placeholder="Search customers..."
+            class="pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none w-full md:w-64 text-sm transition-all shadow-sm"
           />
         </div>
-
         <button
           (click)="openModal()"
-          class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-xl text-sm font-medium shadow-sm flex items-center gap-2 transition-all active:scale-[0.98]"
+          class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-xl text-sm font-medium flex items-center gap-2 transition-all active:scale-[0.98]"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -78,36 +76,36 @@
             }
 
             @for (c of customerList(); track c.id) {
-              <tr class="hover:bg-slate-50/50 transition-colors group">
+              <tr class="hover:bg-slate-50/50 transition-colors group cursor-default">
                 <td class="px-8 py-5">
                   <div class="flex items-center gap-4">
                     <div
-                      class="h-10 w-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-[10px] border border-slate-200 uppercase"
+                      class="h-10 w-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-[10px] border border-blue-100 uppercase"
                     >
                       {{ c.title }}
                     </div>
                     <div>
                       <div class="font-semibold text-slate-900">{{ c.name }}</div>
-                      <div class="text-[10px] text-slate-400 font-mono tracking-tight uppercase">
+                      <div class="text-[10px] text-slate-400 font-mono">
                         ID: {{ c.id.slice(0, 8) }}
                       </div>
                     </div>
                   </div>
                 </td>
-                <td class="px-8 py-5 text-slate-500 font-medium">
-                  {{ c.dob | date: 'mediumDate' }}
+                <td class="px-8 py-5">
+                  <span class="text-slate-500 font-medium">{{ c.dob | date: 'mediumDate' }}</span>
                 </td>
                 <td class="px-8 py-5">
                   <div class="text-slate-700 font-medium">{{ c.city }}, {{ c.province }}</div>
                   <div class="text-[11px] text-slate-400">{{ c.address }}</div>
                 </td>
                 <td class="px-8 py-5">
-                  <span class="text-slate-900 font-semibold font-mono text-xs">
-                    {{ c.salary | currency: 'USD' : 'symbol' : '1.0-0' }}
-                  </span>
+                  <span class="text-slate-900 font-semibold font-mono text-xs">{{
+                    c.salary | currency: 'USD' : 'symbol' : '1.0-0'
+                  }}</span>
                 </td>
                 <td class="px-8 py-5 text-right">
-                  <div class="flex justify-end items-center gap-2">
+                  <div class="flex justify-end gap-2">
                     <button
                       (click)="openModal(c)"
                       class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
@@ -207,7 +205,6 @@
         (click)="closeModal()"
         (keydown)="closeModal()"
       ></div>
-
       <div class="bg-white rounded-4xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden">
         <div class="px-10 py-8 border-b border-slate-50 flex justify-between items-center">
           <h3 class="text-xl font-semibold text-slate-900">
@@ -227,13 +224,12 @@
             </svg>
           </button>
         </div>
-
         <form [formGroup]="customerForm" (ngSubmit)="saveCustomer()" class="p-10 space-y-6">
           <div class="grid grid-cols-4 gap-4">
             <div class="col-span-1">
               <label
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
                 for="customer-title"
+                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
                 >Title</label
               >
               <input
@@ -245,8 +241,8 @@
             </div>
             <div class="col-span-3">
               <label
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
                 for="customer-name"
+                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
                 >Full Name</label
               >
               <input
@@ -259,12 +255,11 @@
               />
             </div>
           </div>
-
           <div class="grid grid-cols-2 gap-4">
             <div>
               <label
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
                 for="customer-dob"
+                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
                 >Date of Birth</label
               >
               <input
@@ -276,8 +271,8 @@
             </div>
             <div>
               <label
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
                 for="customer-salary"
+                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
                 >Salary</label
               >
               <input
@@ -288,11 +283,10 @@
               />
             </div>
           </div>
-
           <div>
             <label
-              class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
               for="customer-address"
+              class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider"
               >Address</label
             >
             <input
@@ -302,7 +296,6 @@
               class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all"
             />
           </div>
-
           <div class="grid grid-cols-3 gap-3">
             <input
               formControlName="city"
@@ -320,7 +313,6 @@
               class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all uppercase"
             />
           </div>
-
           <div class="flex gap-3 pt-6">
             <button
               type="button"
