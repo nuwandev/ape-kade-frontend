@@ -1,74 +1,165 @@
 <div class="bg-[#FBFBFC] p-4 md:p-10 font-sans antialiased text-slate-900">
   <div class="max-w-7xl mx-auto space-y-8">
-    
     <header class="flex flex-col md:flex-row md:items-center justify-between gap-6">
       <div>
         <h1 class="text-3xl font-semibold tracking-tight text-slate-900">Categories</h1>
-        <p class="text-slate-500 text-sm mt-1">Organize your products into logical groups and collections.</p>
+        <p class="text-slate-500 text-sm mt-1">
+          Organize your products into logical groups and collections.
+        </p>
       </div>
 
       <div class="flex flex-wrap items-center gap-3">
         <div class="relative group">
-          <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400 group-focus-within:text-blue-500 transition-colors">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <span
+            class="absolute inset-y-0 left-3.5 flex items-center text-slate-400 group-focus-within:text-blue-500 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
           </span>
-          <input type="text" placeholder="Filter categories..." class="pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none w-full md:w-64 text-sm transition-all shadow-sm" />
+          <input
+            type="text"
+            placeholder="Filter categories..."
+            class="pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none w-full md:w-64 text-sm transition-all shadow-sm"
+          />
         </div>
-        <button class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-xl text-sm font-medium flex items-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-slate-200">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+        <button
+          class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-xl text-sm font-medium flex items-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-slate-200"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            />
+          </svg>
           New Category
         </button>
       </div>
     </header>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="bg-white border border-slate-200 rounded-[2.5rem] p-8 hover:shadow-xl hover:shadow-slate-200/50 transition-all group relative">
-        <div class="h-12 w-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 border border-blue-100">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+      <div
+        class="bg-white border border-slate-200 rounded-[2.5rem] p-8 hover:shadow-xl hover:shadow-slate-200/50 transition-all group relative"
+      >
+        <div
+          class="h-12 w-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 border border-blue-100"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+            />
+          </svg>
         </div>
         <h3 class="font-bold text-slate-900 text-lg">Electronics</h3>
-        <p class="text-slate-400 text-xs font-medium uppercase tracking-widest mt-1">Gadgets & Gear</p>
+        <p class="text-slate-400 text-xs font-medium uppercase tracking-widest mt-1">
+          Gadgets & Gear
+        </p>
         <div class="mt-8 flex items-center justify-between">
-          <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">24 Items</span>
+          <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full"
+            >24 Items</span
+          >
           <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <button class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button
+              class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <!-- hidden for now -->
+    <div class="fixed inset-0 z-100 flex items-center justify-center p-4 hidden">
       <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md"></div>
-      
-      <div class="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-xl relative z-10 overflow-hidden transform transition-all">
-        <div class="px-10 py-8 border-b border-slate-50 flex justify-between items-center bg-white/50 backdrop-blur-sm">
+
+      <div
+        class="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-xl relative z-10 overflow-hidden transform transition-all"
+      >
+        <div
+          class="px-10 py-8 border-b border-slate-50 flex justify-between items-center bg-white/50 backdrop-blur-sm"
+        >
           <div>
             <h3 class="text-xl font-semibold text-slate-900 tracking-tight">New Category</h3>
-            <p class="text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Define taxonomy & organization</p>
+            <p class="text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">
+              Define taxonomy & organization
+            </p>
           </div>
-          <button class="text-slate-400 hover:text-slate-900 p-2 hover:bg-slate-50 rounded-full transition-all">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          <button
+            class="text-slate-400 hover:text-slate-900 p-2 hover:bg-slate-50 rounded-full transition-all"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
           </button>
         </div>
-        
+
         <form class="p-10 space-y-8 overflow-y-auto max-h-[75vh]">
-          
           <div class="space-y-6">
             <div class="grid grid-cols-2 gap-4">
               <div class="col-span-2">
-                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Category Display Name</label>
-                <input type="text" placeholder="e.g. Summer Collection" class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all">
+                <label
+                  for="categoryDisplayName"
+                  class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
+                  >Category Display Name</label
+                >
+                <input
+                  id="categoryDisplayName"
+                  type="text"
+                  placeholder="e.g. Summer Collection"
+                  class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all"
+                />
               </div>
               <div>
-                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">URL Slug</label>
+                <label
+                  for="urlSlug"
+                  class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
+                  >URL Slug</label
+                >
                 <div class="relative">
-                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-xs">/</span>
-                  <input type="text" placeholder="summer-items" class="w-full pl-7 pr-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-mono">
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-xs"
+                    >/</span
+                  >
+                  <input
+                    id="urlSlug"
+                    type="text"
+                    placeholder="summer-items"
+                    class="w-full pl-7 pr-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-mono"
+                  />
                 </div>
               </div>
               <div>
-                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Visibility</label>
-                <select class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all appearance-none cursor-pointer">
+                <label
+                  for="visibility"
+                  class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
+                  >Visibility</label
+                >
+                <select
+                  id="visibility"
+                  class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all appearance-none cursor-pointer"
+                >
                   <option>Public</option>
                   <option>Hidden</option>
                   <option>Archived</option>
@@ -77,27 +168,85 @@
             </div>
 
             <div>
-              <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Identify Icon</label>
+              <label
+                for="identifyIcon"
+                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
+                >Identify Icon</label
+              >
               <div class="flex flex-wrap gap-3">
-                <button type="button" class="h-12 w-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-200 transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                <button type="button" class="h-12 w-12 rounded-xl bg-white border border-slate-100 text-slate-400 hover:border-slate-300 flex items-center justify-center transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                <button type="button" class="h-12 w-12 rounded-xl bg-white border border-slate-100 text-slate-400 hover:border-slate-300 flex items-center justify-center transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 11-8 0m-3.359 13.514L21 21H3l1.359-7.486A2 2 0 016.327 12h11.346a2 2 0 011.968 1.514z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button
+                  type="button"
+                  class="h-12 w-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-200 transition-all"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="h-12 w-12 rounded-xl bg-white border border-slate-100 text-slate-400 hover:border-slate-300 flex items-center justify-center transition-all"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12z"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="h-12 w-12 rounded-xl bg-white border border-slate-100 text-slate-400 hover:border-slate-300 flex items-center justify-center transition-all"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M16 11V7a4 4 0 11-8 0m-3.359 13.514L21 21H3l1.359-7.486A2 2 0 016.327 12h11.346a2 2 0 011.968 1.514z"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
 
           <div>
-            <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">SEO Description</label>
-            <textarea rows="3" placeholder="Describe this category for search engines..." class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all resize-none"></textarea>
+            <label
+              for="seoDescription"
+              class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
+              >SEO Description</label
+            >
+            <textarea
+              id="seoDescription"
+              rows="3"
+              placeholder="Describe this category for search engines..."
+              class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all resize-none"
+            ></textarea>
           </div>
 
           <div class="flex gap-3 pt-6">
-            <button type="button" class="flex-1 px-6 py-4 text-sm font-bold text-slate-400 hover:text-slate-900 transition-all">Discard</button>
-            <button type="submit" class="flex-1 bg-slate-900 text-white px-6 py-4 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 hover:bg-slate-800 transition-all">Create Category</button>
+            <button
+              type="button"
+              class="flex-1 px-6 py-4 text-sm font-bold text-slate-400 hover:text-slate-900 transition-all"
+            >
+              Discard
+            </button>
+            <button
+              type="submit"
+              class="flex-1 bg-slate-900 text-white px-6 py-4 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 hover:bg-slate-800 transition-all"
+            >
+              Create Category
+            </button>
           </div>
         </form>
       </div>
     </div>
-
   </div>
 </div>

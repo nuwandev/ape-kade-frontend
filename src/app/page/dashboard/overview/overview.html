@@ -1,71 +1,102 @@
 <div class="h-full flex flex-col p-6 lg:p-10 space-y-8 overflow-y-auto">
-  
   <header class="flex flex-col md:flex-row md:items-end justify-between gap-6 shrink-0">
     <div>
       <h1 class="text-3xl font-bold tracking-tight text-slate-900">System Pulse</h1>
-      <p class="text-slate-500 text-sm mt-1 font-medium">Here's what's happening at <span class="text-slate-900 font-bold">ApeKade</span> today.</p>
+      <p class="text-slate-500 text-sm mt-1 font-medium">
+        Here's what's happening at <span class="text-slate-900 font-bold">ApeKade</span> today.
+      </p>
     </div>
-    
+
     <div class="flex items-center gap-3">
-       <div class="hidden lg:flex items-center gap-2 bg-white px-4 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-500">
-         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-         LIVE UPDATES
-       </div>
-       <button routerLink="/dashboard/place-order" class="bg-slate-900 hover:bg-blue-600 text-white px-6 py-3 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 flex items-center gap-2 transition-all active:scale-95">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
-          New Transaction
-       </button>
+      <div
+        class="hidden lg:flex items-center gap-2 bg-white px-4 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-500"
+      >
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        LIVE UPDATES
+      </div>
+      <button
+        routerLink="/dashboard/place-order"
+        class="bg-slate-900 hover:bg-blue-600 text-white px-6 py-3 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 flex items-center gap-2 transition-all active:scale-95"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
+        </svg>
+        New Transaction
+      </button>
     </div>
   </header>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 shrink-0">
-    
-    <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+    <div
+      class="bg-white p-6 rounded-4xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
+    >
       <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-        <svg class="w-16 h-16 text-slate-900" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.82v-1.91c-1.57-.24-3.07-.81-4.39-1.64l1.39-2.04c1.11.71 2.37 1.15 3.69 1.25.76.06 1.5-.1 2.09-.44.42-.25.71-.62.81-1.04.22-.92-.51-1.62-2.19-2.08-2.31-.63-4.36-1.55-4.36-4.04 0-1.59.98-2.91 2.52-3.46V5h2.82v1.86c1.23.16 2.4.52 3.44 1.02l-1.2 2.07c-.9-.4-1.87-.64-2.87-.69-.74-.04-1.42.11-1.94.43-.36.23-.59.57-.65.97-.18.99.78 1.5 2.15 1.94 2.5.8 4.6 1.76 4.6 4.28 0 1.69-1.01 3.01-2.86 3.65z"/></svg>
+        <svg class="w-16 h-16 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.82v-1.91c-1.57-.24-3.07-.81-4.39-1.64l1.39-2.04c1.11.71 2.37 1.15 3.69 1.25.76.06 1.5-.1 2.09-.44.42-.25.71-.62.81-1.04.22-.92-.51-1.62-2.19-2.08-2.31-.63-4.36-1.55-4.36-4.04 0-1.59.98-2.91 2.52-3.46V5h2.82v1.86c1.23.16 2.4.52 3.44 1.02l-1.2 2.07c-.9-.4-1.87-.64-2.87-.69-.74-.04-1.42.11-1.94.43-.36.23-.59.57-.65.97-.18.99.78 1.5 2.15 1.94 2.5.8 4.6 1.76 4.6 4.28 0 1.69-1.01 3.01-2.86 3.65z"
+          />
+        </svg>
       </div>
       <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Total Revenue</p>
       <h3 class="text-3xl font-black text-slate-900 mt-2 font-mono">$42,390</h3>
       <div class="mt-4 flex items-center gap-2">
-        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-lg">+12.5%</span>
+        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-lg"
+          >+12.5%</span
+        >
         <span class="text-[10px] text-slate-400 font-medium italic">vs last month</span>
       </div>
     </div>
 
-    <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm group">
+    <div class="bg-white p-6 rounded-4xl border border-slate-200 shadow-sm group">
       <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Active Orders</p>
       <h3 class="text-3xl font-black text-slate-900 mt-2 font-mono">1,248</h3>
       <div class="mt-4 flex items-center gap-2">
-        <span class="text-[10px] font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-lg">+4.2%</span>
+        <span class="text-[10px] font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-lg"
+          >+4.2%</span
+        >
         <span class="text-[10px] text-slate-400 font-medium italic">daily avg. 42</span>
       </div>
     </div>
 
-    <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm">
+    <div class="bg-white p-6 rounded-4xl border border-slate-200 shadow-sm">
       <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Total Customers</p>
       <h3 class="text-3xl font-black text-slate-900 mt-2 font-mono">3,420</h3>
       <div class="mt-4 flex items-center gap-2">
-        <span class="text-[10px] font-bold bg-purple-100 text-purple-700 px-2 py-0.5 rounded-lg">+1.1%</span>
+        <span class="text-[10px] font-bold bg-purple-100 text-purple-700 px-2 py-0.5 rounded-lg"
+          >+1.1%</span
+        >
         <span class="text-[10px] text-slate-400 font-medium italic">82 new this week</span>
       </div>
     </div>
 
-    <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm">
+    <div class="bg-white p-6 rounded-4xl border border-slate-200 shadow-sm">
       <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Inventory</p>
       <h3 class="text-3xl font-black text-slate-900 mt-2 font-mono">512</h3>
       <div class="mt-4 flex items-center gap-2">
-        <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-lg">Low Stock: 12</span>
+        <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-lg"
+          >Low Stock: 12</span
+        >
         <span class="text-[10px] text-slate-400 font-medium italic">Items tracked</span>
       </div>
     </div>
   </div>
 
   <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 pb-10">
-    
-    <div class="xl:col-span-2 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+    <div
+      class="xl:col-span-2 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden flex flex-col"
+    >
       <div class="p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
-        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest">Live Transactions</h3>
-        <button class="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors">History Catalog &rarr;</button>
+        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest">
+          Live Transactions
+        </h3>
+        <button class="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors">
+          History Catalog &rarr;
+        </button>
       </div>
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
@@ -85,35 +116,58 @@
               </td>
               <td class="px-8 py-5">
                 <div class="flex items-center gap-2">
-                  <div class="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500">SL</div>
+                  <div
+                    class="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500"
+                  >
+                    SL
+                  </div>
                   <span class="text-sm font-semibold text-slate-700">Sarah Lee</span>
                 </div>
               </td>
               <td class="px-8 py-5">
-                <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-600 border border-amber-100">PROCESSING</span>
+                <span
+                  class="px-3 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-600 border border-amber-100"
+                  >PROCESSING</span
+                >
               </td>
               <td class="px-8 py-5 text-right font-mono font-black text-slate-900">$245.00</td>
             </tr>
-            </tbody>
+          </tbody>
         </table>
       </div>
     </div>
 
     <div class="bg-slate-900 rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden">
-      <div class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-blue-600/20 blur-[80px] rounded-full"></div>
-      
+      <div
+        class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-blue-600/20 blur-[80px] rounded-full"
+      ></div>
+
       <h3 class="text-sm font-bold text-white uppercase tracking-widest mb-6">Performance</h3>
-      
+
       <div class="space-y-6">
         <div>
-          <p class="text-slate-400 text-xs font-medium mb-2 uppercase tracking-tighter">Peak Hours</p>
+          <p class="text-slate-400 text-xs font-medium mb-2 uppercase tracking-tighter">
+            Peak Hours
+          </p>
           <div class="flex items-end gap-1.5 h-32">
-            <div class="flex-1 bg-white/10 rounded-t-lg h-[40%] hover:bg-blue-500 transition-all"></div>
-            <div class="flex-1 bg-white/10 rounded-t-lg h-[60%] hover:bg-blue-500 transition-all"></div>
-            <div class="flex-1 bg-white/10 rounded-t-lg h-[90%] hover:bg-blue-500 transition-all shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-            <div class="flex-1 bg-white/10 rounded-t-lg h-[75%] hover:bg-blue-500 transition-all"></div>
-            <div class="flex-1 bg-white/10 rounded-t-lg h-[50%] hover:bg-blue-500 transition-all"></div>
-            <div class="flex-1 bg-white/10 rounded-t-lg h-[30%] hover:bg-blue-500 transition-all"></div>
+            <div
+              class="flex-1 bg-white/10 rounded-t-lg h-[40%] hover:bg-blue-500 transition-all"
+            ></div>
+            <div
+              class="flex-1 bg-white/10 rounded-t-lg h-[60%] hover:bg-blue-500 transition-all"
+            ></div>
+            <div
+              class="flex-1 bg-white/10 rounded-t-lg h-[90%] hover:bg-blue-500 transition-all shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+            ></div>
+            <div
+              class="flex-1 bg-white/10 rounded-t-lg h-[75%] hover:bg-blue-500 transition-all"
+            ></div>
+            <div
+              class="flex-1 bg-white/10 rounded-t-lg h-[50%] hover:bg-blue-500 transition-all"
+            ></div>
+            <div
+              class="flex-1 bg-white/10 rounded-t-lg h-[30%] hover:bg-blue-500 transition-all"
+            ></div>
           </div>
         </div>
 
@@ -123,15 +177,19 @@
             <span class="text-xs text-white font-bold">$5,000 / $8,000</span>
           </div>
           <div class="w-full bg-white/5 rounded-full h-1.5">
-            <div class="bg-blue-500 h-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]" style="width: 65%"></div>
+            <div
+              class="bg-blue-500 h-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+              style="width: 65%"
+            ></div>
           </div>
         </div>
 
-        <button class="w-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold py-3 rounded-xl transition-all border border-white/5 uppercase tracking-widest mt-4">
+        <button
+          class="w-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold py-3 rounded-xl transition-all border border-white/5 uppercase tracking-widest mt-4"
+        >
           Detailed Analytics
         </button>
       </div>
     </div>
-
   </div>
 </div>
