@@ -61,3 +61,12 @@ export type TOrder = {
   totalAmount: number;
   source: string;
 };
+
+export type TCreateOrderDTO = {
+  customerId: string;
+  items: {
+    productId: string;
+    quantity: number;
+  }[];
+  source: 'STORE_POS';
+};

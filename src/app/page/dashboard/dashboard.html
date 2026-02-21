@@ -3,228 +3,102 @@
   data-drawer-toggle="logo-sidebar"
   aria-controls="logo-sidebar"
   type="button"
-  class="text-gray-700 bg-transparent border-0 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg ml-3 mt-3 text-sm p-2 focus:outline-none inline-flex sm:hidden"
+  class="fixed top-4 left-4 z-50 p-2 text-slate-600 bg-white border border-slate-200 rounded-xl shadow-sm sm:hidden hover:bg-slate-50 focus:outline-none transition-all"
 >
   <span class="sr-only">Open sidebar</span>
-  <svg
-    class="w-6 h-6"
-    aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    fill="none"
-    viewBox="0 0 24 24"
-  >
-    <path
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-width="2"
-      d="M5 7h14M5 12h14M5 17h10"
-    />
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
   </svg>
 </button>
 
 <aside
   id="logo-sidebar"
-  class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
+  class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r border-slate-200/60 bg-white shadow-sm"
   aria-label="Sidebar"
 >
-  <div class="h-full px-3 py-6 overflow-y-auto bg-white border-r border-gray-200 flex flex-col">
-    <a href="/" class="flex items-center pl-2.5 mb-6">
-      <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3" alt="ApeKade Logo" />
-      <span class="self-center text-lg text-gray-900 font-semibold whitespace-nowrap">ApeKade</span>
+  <div class="h-full px-5 py-8 flex flex-col bg-white">
+    <a href="/" class="flex items-center gap-3 px-3 mb-10 group">
+      <div class="h-9 w-9 bg-slate-900 rounded-xl flex items-center justify-center text-white shadow-lg shadow-slate-200 group-hover:rotate-6 transition-transform">
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      </div>
+      <span class="text-xl font-bold tracking-tight text-slate-900">ApeKade</span>
     </a>
 
-    <nav class="flex-1 flex flex-col">
-      <ul class="space-y-2 text-sm font-medium text-gray-600">
-        <li>
-          <a
-            routerLink="/dashboard"
-            class="flex items-center px-3 py-2 text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary-600 transition"
-            aria-current="page"
-          >
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6.025A7.5 7.5 0 1 0 17.975 14H10V6.025Z"
-              />
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13.5 3c-.169 0-.334.014-.5.025V11h7.975c.011-.166.025-.331.025-.5A7.5 7.5 0 0 0 13.5 3Z"
-              />
-            </svg>
-            <span class="ml-3">Dashboard</span>
-          </a>
-        </li>
+    <nav class="flex-1 space-y-8 overflow-y-auto scrollbar-hide">
+      
+      <div>
+        <label class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block">Store Overview</label>
+        <ul class="space-y-1.5">
+          <li>
+            <a routerLink="/dashboard" routerLinkActive="bg-slate-900 text-white shadow-indigo-100" [routerLinkActiveOptions]="{exact: true}"
+               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
+              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a routerLink="/dashboard/orders" routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
+               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
+              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+              Orders
+            </a>
+          </li>
+        </ul>
+      </div>
 
-        <li>
-          <a
-            routerLink="/dashboard/orders"
-            class="flex items-center px-3 py-2 text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary-600 transition"
-          >
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
-              />
-            </svg>
-            <span class="ml-3">Orders</span>
-          </a>
-        </li>
+      <div>
+        <label class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block">Inventory</label>
+        <ul class="space-y-1.5">
+          <li>
+            <a routerLink="/dashboard/categories" routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
+               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
+              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 11h.01M7 15h.01M10 7h10M10 11h10M10 15h10" /></svg>
+              Categories
+            </a>
+          </li>
+          <li>
+            <a routerLink="/dashboard/items" routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
+               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
+              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+              Items
+            </a>
+          </li>
+        </ul>
+      </div>
 
-        <li>
-          <a
-            routerLink="/dashboard/categories"
-            class="flex items-center px-3 py-2 text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary-600 transition"
-          >
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <rect
-                x="3"
-                y="3"
-                width="7"
-                height="7"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-              <rect
-                x="14"
-                y="3"
-                width="7"
-                height="7"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-              <rect
-                x="3"
-                y="14"
-                width="7"
-                height="7"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-              <rect
-                x="14"
-                y="14"
-                width="7"
-                height="7"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-            </svg>
-            <span class="ml-3">Categories</span>
-          </a>
-        </li>
-
-        <li>
-          <a
-            routerLink="/dashboard/items"
-            class="flex items-center px-3 py-2 text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary-600 transition"
-          >
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 13h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H20M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M4 13l2-9h12l2 9M9 7h6m-7 3h8"
-              />
-            </svg>
-            <span class="ml-3">Items</span>
-          </a>
-        </li>
-
-        <li>
-          <a
-            routerLink="/dashboard/customers"
-            class="flex items-center px-3 py-2 text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary-600 transition"
-          >
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-width="2"
-                d="M16 19h4a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-2m-2.236-4a3 3 0 1 0 0-4M3 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-              />
-            </svg>
-            <span class="ml-3">Customers</span>
-          </a>
-        </li>
-      </ul>
-
-      <div class="mt-auto pt-4 border-t border-gray-200">
-        <a
-          href="#"
-          class="flex items-center px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary-600 transition"
-        >
-          <svg
-            class="w-5 h-5 mr-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"
-            />
-          </svg>
-          <span>Sign In</span>
-        </a>
+      <div>
+        <label class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4 block">CRM</label>
+        <ul class="space-y-1.5">
+          <li>
+            <a routerLink="/dashboard/customers" routerLinkActive="bg-slate-900 text-white shadow-lg shadow-slate-200"
+               class="flex items-center px-4 py-3 text-sm font-semibold text-slate-600 rounded-2xl hover:bg-slate-50 transition-all group">
+              <svg class="w-5 h-5 mr-3 opacity-70 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+              Customers
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
+
+    <div class="mt-auto pt-6">
+      <div class="p-4 bg-slate-50 rounded-[2rem] border border-slate-100 flex items-center gap-3">
+        <div class="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-sm">
+          JD
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-bold text-slate-900 truncate">John Doe</p>
+          <p class="text-[10px] text-slate-400 font-medium truncate uppercase tracking-tighter">Terminal Manager</p>
+        </div>
+        <button class="p-2 text-slate-400 hover:text-red-500 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+        </button>
+      </div>
+    </div>
   </div>
 </aside>
 
-<main class="p-6 sm:ml-64 min-h-screen bg-slate-50">
-  <div class="max-w-7xl mx-auto">
-    <div class="p-6 border border-gray-200 rounded-lg bg-white shadow-sm">
-      <router-outlet></router-outlet>
-    </div>
+<main class="sm:ml-72 h-screen bg-slate-50 overflow-hidden flex flex-col">
+  <div class="flex-1 flex flex-col min-h-0">
+    <router-outlet></router-outlet>
   </div>
 </main>
