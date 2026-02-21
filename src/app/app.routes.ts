@@ -6,6 +6,7 @@ import { Customer } from './page/dashboard/customer/customer';
 import { Item } from './page/dashboard/item/item';
 import { Order } from './page/dashboard/order/order';
 import { Overview } from './page/dashboard/overview/overview';
+import { Category } from './page/dashboard/category/category';
 
 export const routes: Routes = [
   {
@@ -24,6 +25,10 @@ export const routes: Routes = [
       {
         path: 'customers',
         component: Customer,
+      },
+      {
+        path: 'categories',
+        component: Category,
       },
       {
         path: 'items',
