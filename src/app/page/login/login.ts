@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '@app/services/auth';
+import { ToastService } from '@app/services/toast';
 import { Credentials } from 'types/index';
 
 @Component({
@@ -14,9 +15,9 @@ export class Login {
   private readonly authService = inject(AuthService);
   private readonly fb = inject(FormBuilder);
   private readonly route = inject(Router);
+  private readonly toast = inject(ToastService);
 
   isLoading = signal(false);
-  errorMessage = signal<string | null>(null);
 
   loginForm = this.fb.group({
     identifier: ['', [Validators.required, Validators.minLength(3)]],
@@ -34,7 +35,7 @@ export class Login {
         this.route.navigate(['/dashboard']);
       },
       error: (err) => {
-        this.errorMessage.set(err.error?.message || 'Login failed. Please try again.');
+        this.toast.show(err.error?.message || 'Login failed', 'error')
         this.isLoading.set(false);
       },
     });
