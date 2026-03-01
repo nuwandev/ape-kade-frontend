@@ -1,9 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '@app/services/auth';
 import { ToastService } from '@app/services/toast';
-import { Credentials } from 'types/index';
+import { LoginRequest } from 'types/index';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,6 @@ import { Credentials } from 'types/index';
 export class Login {
   private readonly authService = inject(AuthService);
   private readonly fb = inject(FormBuilder);
-  private readonly route = inject(Router);
   private readonly toast = inject(ToastService);
 
   isLoading = signal(false);
@@ -29,10 +28,9 @@ export class Login {
 
     this.isLoading.set(true);
 
-    this.authService.login(this.loginForm.value as Credentials).subscribe({
+    this.authService.login(this.loginForm.value as LoginRequest).subscribe({
       next: () => {
         this.isLoading.set(false);
-        this.route.navigate(['/dashboard']);
       },
       error: (err) => {
         this.toast.show(err.error?.message || 'Login failed', 'error')

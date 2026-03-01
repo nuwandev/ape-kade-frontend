@@ -1,24 +1,38 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '@app/services/auth';
+import { ToastService } from '@app/services/toast';
+import { RegisterRequest } from 'types/index';
 
 @Component({
   selector: 'app-register',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
 export class Register {
   private readonly fb = inject(FormBuilder);
-  registerForm = this.fb.group({
-    businessName: ['', [Validators.required, Validators.minLength(3)]],
-    username: [
-      '',
-      [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z0-9_]+$/)],
-    ],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]],
-  });
+  private readonly authService = inject(AuthService);
+  private readonly toast = inject(ToastService);
 
-  onRegister() {}
+  registerForm = this.fb.group({
+    fullName: ['', [Validators.required, Validators.minLength(3)]], // business identity
+    username: ['', [Validators.required, Validators.minLength(3)]], // terminal id
+    email: ['', [Validators.required, Validators.email]], // communication
+    password: ['', [Validators.required, Validators.minLength(8)]], // security key
+  });
+  onRegister() {
+    if (this.registerForm.valid) {
+      this.authService.register(this.registerForm.value as RegisterRequest).subscribe({
+        next: () => {
+          this.toast.show('Registration successful! Logging you in...', 'success');
+        },
+        error: (err) => {
+          const errorMsg = err.error?.message || 'Registration failed. Please try again.';
+          this.toast.show(errorMsg, 'error');
+        },
+      });
+    }
+  }
 }

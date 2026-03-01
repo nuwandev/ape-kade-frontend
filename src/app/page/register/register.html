@@ -70,21 +70,17 @@
                   >Business Identity</label
                 >
                 @if (
-                  registerForm.get('businessName')?.invalid &&
-                  registerForm.get('businessName')?.touched
+                  registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched
                 ) {
-                  <span class="text-[9px] font-black text-red-500 uppercase animate-pulse"
-                    >Required</span
-                  >
+                  <span class="text-[9px] font-black text-red-500 uppercase">Required</span>
                 }
               </div>
               <input
-                formControlName="businessName"
+                formControlName="fullName"
                 type="text"
                 placeholder="ApeKade PVT LTD"
                 [class.border-red-400]="
-                  registerForm.get('businessName')?.invalid &&
-                  registerForm.get('businessName')?.touched
+                  registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched
                 "
                 class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl text-sm font-semibold outline-none focus:ring-4 focus:ring-slate-900/5 focus:bg-white focus:border-slate-300 transition-all"
               />
@@ -118,7 +114,7 @@
                   >Communication</label
                 >
                 @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
-                  <span class="text-[9px] font-black text-red-500 uppercase">Bad Email</span>
+                  <span class="text-[9px] font-black text-red-500 uppercase">Invalid Email</span>
                 }
               </div>
               <input
@@ -158,7 +154,7 @@
               <button
                 type="submit"
                 [disabled]="registerForm.invalid"
-                class="w-full bg-slate-900 hover:bg-slate-800 disabled:bg-slate-200 disabled:text-slate-400 disabled:shadow-none disabled:cursor-not-allowed text-white text-sm font-bold py-5 rounded-2xl shadow-xl shadow-slate-200 transition-all active:scale-[0.98] flex items-center justify-center gap-3"
+                class="w-full bg-slate-900 hover:bg-slate-800 disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed text-white text-sm font-bold py-5 rounded-2xl shadow-xl shadow-slate-200 transition-all active:scale-[0.98] flex items-center justify-center gap-3"
               >
                 Initialize Terminal
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,7 +167,6 @@
                 </svg>
               </button>
             </div>
-
             <div class="col-span-2 text-center pt-2">
               <p class="text-xs font-bold text-slate-400 uppercase tracking-tighter">
                 Joined us before?

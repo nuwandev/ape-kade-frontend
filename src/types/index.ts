@@ -1,9 +1,14 @@
-export type Credentials = {
+export interface LoginRequest {
   identifier: string;
   password: string;
-  email?: string;
-  fullName?: string;
-};
+}
+
+export interface RegisterRequest {
+  username: string;
+  email: string;
+  password: string;
+  fullName: string;
+}
 export interface CustomerResponse {
   id: string;
   title: string;
