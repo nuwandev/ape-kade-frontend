@@ -10,6 +10,7 @@ import { Category } from './page/dashboard/category/category';
 import { PlaceOrder } from './page/dashboard/place-order/place-order';
 import { OrderHistory } from './page/dashboard/order-history/order-history';
 import { authGuard } from './auth-guard';
+import { guestGuard } from './guest-guard';
 
 export const routes: Routes = [
   {
@@ -20,10 +21,12 @@ export const routes: Routes = [
   {
     path: 'login',
     component: Login,
+    canActivate: [guestGuard],
   },
   {
     path: 'register',
     component: Register,
+    canActivate: [guestGuard],
   },
   {
     path: 'dashboard',
