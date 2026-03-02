@@ -22,9 +22,9 @@ export class Item implements OnInit {
   private readonly categoryService = inject(CategoryService);
 
   isModelOpen = signal(false);
-  isEditing = signal(false);
   isLoading = signal(false);
   editingItemId = signal<string | null>(null);
+  isEditing = computed(() => !!this.editingItemId());
 
   itemForm = this.fb.group({
     sku: ['', Validators.required],
@@ -81,7 +81,6 @@ export class Item implements OnInit {
   }
 
   onEdit(item: ItemResponse) {
-    this.isEditing.set(true);
     this.editingItemId.set(item.id);
     this.itemForm.patchValue({
       sku: item.sku,
@@ -129,6 +128,7 @@ export class Item implements OnInit {
         next: () => {
           this.toast.show('Item updated successfully', 'success');
           this.getItems();
+          this.editingItemId.set(null);
           this.closeModel();
         },
         error: (err) => {
