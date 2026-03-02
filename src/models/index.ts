@@ -35,6 +35,16 @@ export interface CategoryResponse {
   itemCount: number;
 }
 
+export interface ItemRequest {
+  sku: string;
+  name: string;
+  description: string;
+  price: number;
+  currentStock: number;
+  alertLevel: number;
+  categoryId: string;
+}
+
 export interface ItemResponse {
   id: string;
   sku: string;
