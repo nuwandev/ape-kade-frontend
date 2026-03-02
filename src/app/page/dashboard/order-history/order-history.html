@@ -1,110 +1,271 @@
-<div class="h-full flex flex-col overflow-hidden bg-[#F8F9FB]">
-  
-  <header class="bg-white border-b border-slate-200 px-8 py-6 shrink-0">
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-      <div>
-        <h1 class="text-2xl font-bold text-slate-900">Order History</h1>
-        <p class="text-xs text-slate-400 font-medium mt-1">Search and manage every transaction in your system</p>
-      </div>
+<div class="flex flex-col h-full bg-slate-50 overflow-hidden font-sans antialiased text-slate-900">
+  <header
+    class="h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between shrink-0 z-10"
+  >
+    <div class="flex items-center gap-4">
+      <h1 class="text-lg font-bold tracking-tight">Order History</h1>
+      <span
+        class="px-2 py-0.5 rounded bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest border border-blue-100"
+      >
+        2,401 Total Orders
+      </span>
+    </div>
 
-      <div class="flex items-center gap-3">
-        <button class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 transition-all">
-          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          Export CSV
-        </button>
-        <button routerLink="/dashboard/place-order" class="bg-slate-900 text-white px-5 py-2 rounded-xl text-xs font-bold shadow-lg shadow-slate-200 hover:bg-blue-600 transition-all">
-          Create New Order
-        </button>
+    <div class="flex-1 max-w-md mx-8">
+      <div class="relative">
+        <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </span>
+        <input
+          type="text"
+          placeholder="Search Order ID, Customer, or Status..."
+          class="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-xl focus:ring-2 focus:ring-blue-500/20 transition-all outline-none text-sm"
+        />
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
-      <div class="relative">
-        <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        </span>
-        <input type="text" placeholder="ID, Customer, or SKU..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-blue-500/10 focus:bg-white transition-all">
-      </div>
-      
-      <select class="px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-600 outline-none focus:bg-white">
-        <option>All Statuses</option>
-        <option>Completed</option>
-        <option>Pending</option>
-        <option>Cancelled</option>
-      </select>
+    <div class="flex items-center gap-3">
+      <button
+        class="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-all"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          />
+        </svg>
+      </button>
 
-      <select class="px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-600 outline-none focus:bg-white">
-        <option>Last 30 Days</option>
-        <option>Last 3 months</option>
-        <option>Full Year</option>
-        <option>Custom Range</option>
-      </select>
-
-      <div class="flex items-center gap-2">
-         <button class="flex-1 bg-blue-50 text-blue-600 py-2.5 rounded-xl text-xs font-bold hover:bg-blue-100 transition-all">Apply Filters</button>
-         <button class="px-3 py-2.5 text-slate-400 hover:text-slate-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></button>
-      </div>
+      <button
+        class="bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all active:scale-95 flex items-center gap-2 shadow-lg shadow-slate-200"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 4v16m8-8H4"
+          />
+        </svg>
+        Create Order
+      </button>
     </div>
   </header>
 
-  <div class="flex-1 overflow-auto p-8">
-    <div class="bg-white border border-slate-200 rounded-4xl overflow-hidden shadow-sm">
+  <main class="flex-1 overflow-y-auto p-6 scrollbar-hide">
+    <div class="bg-white border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm">
       <table class="w-full text-left border-collapse">
         <thead>
-          <tr class="bg-slate-50/50 border-b border-slate-100 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
-            <th class="px-8 py-5">Order Reference</th>
-            <th class="px-8 py-5">Customer Details</th>
-            <th class="px-8 py-5 text-center">Items</th>
-            <th class="px-8 py-5">Fulfillment</th>
-            <th class="px-8 py-5 text-right">Total Amount</th>
-            <th class="px-8 py-5 text-center">Actions</th>
+          <tr class="bg-slate-50/50 border-b border-slate-100">
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Transaction
+            </th>
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Customer
+            </th>
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Fulfillment
+            </th>
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Amount
+            </th>
+            <th
+              class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-right"
+            >
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody class="divide-y divide-slate-50">
-          @for (item of [1,2,3,4,5,6,7,8]; track item) {
-          <tr class="group hover:bg-slate-50 transition-all">
+          <tr class="hover:bg-slate-50/50 transition-colors group">
             <td class="px-8 py-5">
-              <span class="text-sm font-bold text-slate-900 block">#ORD-2026-{{item}}094</span>
-              <span class="text-[10px] text-slate-400 font-mono">Feb 21, 2026 • 09:41 AM</span>
-            </td>
-            <td class="px-8 py-5">
-              <div class="flex items-center gap-3">
-                <div class="h-8 w-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[10px] font-bold">JD</div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="h-10 w-10 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400 border border-slate-100 group-hover:rotate-6 transition-transform"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                    />
+                  </svg>
+                </div>
                 <div>
-                  <p class="text-sm font-semibold text-slate-700">James D. Miller</p>
-                  <p class="text-[10px] text-slate-400">james@example.com</p>
+                  <p class="text-sm font-bold text-slate-900">#ORD-2026-904</p>
+                  <p
+                    class="text-[11px] text-slate-400 font-medium font-mono uppercase tracking-tighter"
+                  >
+                    Feb 21, 2026 • 09:41 AM
+                  </p>
                 </div>
               </div>
             </td>
-            <td class="px-8 py-5 text-center">
-              <span class="bg-slate-100 text-slate-600 text-[10px] font-bold px-2.5 py-1 rounded-lg">3 Items</span>
-            </td>
             <td class="px-8 py-5">
-              <div class="flex items-center gap-1.5 text-emerald-600">
-                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-                <span class="text-[11px] font-bold uppercase tracking-widest">Completed</span>
+              <div class="flex items-center gap-3">
+                <div
+                  class="h-7 w-7 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[10px] font-bold border border-blue-100"
+                >
+                  JM
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-900">James D. Miller</p>
+                  <p class="text-[10px] text-slate-400 font-medium">james@example.com</p>
+                </div>
               </div>
             </td>
-            <td class="px-8 py-5 text-right font-mono font-black text-slate-900">$1,420.00</td>
-            <td class="px-8 py-5 text-center">
-              <button class="p-2 text-slate-400 hover:text-blue-600 transition-all hover:bg-blue-50 rounded-lg">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-              </button>
+            <td class="px-8 py-5">
+              <div class="flex flex-col gap-1.5">
+                <div class="flex items-center justify-between w-28">
+                  <span class="text-[10px] font-bold text-emerald-600 uppercase tracking-tighter"
+                    >Completed</span
+                  >
+                  <span class="text-[10px] font-bold text-slate-400 italic">3 Items</span>
+                </div>
+                <div class="w-28 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full w-full"></div>
+                </div>
+              </div>
+            </td>
+            <td class="px-8 py-5 text-sm font-black text-slate-900">$1,420.00</td>
+            <td class="px-8 py-5 text-right">
+              <div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all">
+                <button
+                  class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    />
+                  </svg>
+                </button>
+              </div>
             </td>
           </tr>
-          }
         </tbody>
       </table>
     </div>
-    
-    <div class="flex items-center justify-between mt-8 px-4">
-      <p class="text-xs text-slate-400 font-medium">Showing 1 to 10 of 2,401 entries</p>
-      <div class="flex items-center gap-2">
-        <button class="p-2 border border-slate-200 rounded-lg hover:bg-white text-slate-400 disabled:opacity-50">Prev</button>
-        <button class="h-8 w-8 bg-slate-900 text-white rounded-lg text-xs font-bold">1</button>
-        <button class="h-8 w-8 border border-slate-200 text-slate-600 rounded-lg text-xs font-bold hover:bg-white">2</button>
-        <button class="h-8 w-8 border border-slate-200 text-slate-600 rounded-lg text-xs font-bold hover:bg-white">3</button>
-        <button class="p-2 border border-slate-200 rounded-lg hover:bg-white text-slate-400">Next</button>
+
+    <div
+      class="hidden flex flex-col items-center justify-center py-24 bg-white border border-dashed border-slate-200 rounded-[3rem]"
+    >
+      <div
+        class="h-20 w-20 bg-slate-50 rounded-[2rem] flex items-center justify-center text-slate-200 mb-6"
+      >
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+          />
+        </svg>
+      </div>
+      <h3 class="text-lg font-bold text-slate-900">No orders found</h3>
+      <p class="text-sm text-slate-400 mt-1">Try adjusting your filters or date range.</p>
+    </div>
+  </main>
+
+  <footer
+    class="h-16 bg-white border-t border-slate-200 px-8 flex items-center justify-between shrink-0"
+  >
+    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+      Showing <span class="text-slate-900">1-10</span> of 2,401 Orders
+    </p>
+    <div class="flex items-center gap-1">
+      <button
+        class="p-2 text-slate-400 hover:bg-slate-100 rounded-xl transition-all disabled:opacity-20"
+        disabled
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+      <div class="flex items-center gap-1 mx-2">
+        <button
+          class="w-8 h-8 rounded-lg bg-slate-900 text-white text-xs font-bold transition-all shadow-md shadow-slate-200"
+        >
+          1
+        </button>
+        <button
+          class="w-8 h-8 rounded-lg text-slate-400 hover:bg-slate-50 text-xs font-bold transition-all"
+        >
+          2
+        </button>
+      </div>
+      <button class="p-2 text-slate-400 hover:bg-slate-100 rounded-xl transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <div class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md"></div>
+    <div
+      class="bg-white rounded-[3rem] shadow-2xl w-full max-w-xl relative z-10 overflow-hidden border border-white"
+    >
+      <div class="px-10 py-8 border-b border-slate-50 flex justify-between items-center">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 tracking-tight">Order Details</h3>
+          <p class="text-[10px] text-slate-400 uppercase tracking-widest font-black mt-0.5">
+            Management & Receipts
+          </p>
+        </div>
+        <button
+          class="text-slate-400 hover:text-slate-900 p-2 hover:bg-slate-50 rounded-full transition-all"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="p-10 text-center">
+        <p class="text-sm text-slate-400">
+          Order breakdown and management options will appear here.
+        </p>
       </div>
     </div>
   </div>

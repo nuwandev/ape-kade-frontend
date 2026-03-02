@@ -1,252 +1,317 @@
-<div class="bg-[#FBFBFC] p-4 md:p-10 font-sans antialiased text-slate-900">
-  <div class="max-w-7xl mx-auto space-y-8">
-    <header class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-      <div>
-        <h1 class="text-3xl font-semibold tracking-tight text-slate-900">Categories</h1>
-        <p class="text-slate-500 text-sm mt-1">
-          Organize your products into logical groups and collections.
-        </p>
-      </div>
+<div class="flex flex-col h-full bg-slate-50 overflow-hidden font-sans antialiased text-slate-900">
+  <header
+    class="h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between shrink-0 z-10"
+  >
+    <div class="flex items-center gap-4">
+      <h1 class="text-lg font-bold tracking-tight">Categories</h1>
+      <span
+        class="px-2 py-0.5 rounded bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest border border-blue-100"
+      >
+        12 Active Groups
+      </span>
+    </div>
 
-      <div class="flex flex-wrap items-center gap-3">
-        <div class="relative group">
-          <span
-            class="absolute inset-y-0 left-3.5 flex items-center text-slate-400 group-focus-within:text-blue-500 transition-colors"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </span>
-          <input
-            type="text"
-            placeholder="Filter categories..."
-            class="pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none w-full md:w-64 text-sm transition-all shadow-sm"
-          />
-        </div>
-        <button
-          class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-xl text-sm font-medium flex items-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-slate-200"
-        >
+    <div class="flex-1 max-w-md mx-8">
+      <div class="relative">
+        <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-          New Category
+        </span>
+        <input
+          type="text"
+          placeholder="Search categories..."
+          class="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-xl focus:ring-2 focus:ring-blue-500/20 transition-all outline-none text-sm"
+        />
+      </div>
+    </div>
+
+    <button
+      class="bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all active:scale-95 flex items-center gap-2 shadow-lg shadow-slate-200"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      </svg>
+      New Category
+    </button>
+  </header>
+
+  <main class="flex-1 overflow-y-auto p-6 scrollbar-hide">
+    <div class="bg-white border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-slate-50/50 border-b border-slate-100">
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Category Name
+            </th>
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              URL Slug
+            </th>
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Volume
+            </th>
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Visibility
+            </th>
+            <th
+              class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-right"
+            >
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-50">
+          <tr class="hover:bg-slate-50/50 transition-colors group">
+            <td class="px-8 py-5">
+              <div class="flex items-center gap-4">
+                <div
+                  class="h-10 w-10 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400 border border-slate-100 group-hover:rotate-6 transition-transform"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Electronics</p>
+                  <p class="text-[11px] text-slate-400 font-medium uppercase tracking-tighter">
+                    Gadgets & Gear
+                  </p>
+                </div>
+              </div>
+            </td>
+            <td class="px-8 py-5">
+              <code
+                class="text-[11px] bg-slate-50 px-2 py-1 rounded border border-slate-100 text-slate-500 font-mono"
+                >/electronics</code
+              >
+            </td>
+            <td class="px-8 py-5">
+              <div class="flex flex-col gap-1.5">
+                <div class="flex items-center justify-between w-24">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase">24 Items</span>
+                </div>
+                <div class="w-24 h-1 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-blue-500 rounded-full w-[65%]"></div>
+                </div>
+              </div>
+            </td>
+            <td class="px-8 py-5">
+              <span
+                class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-600 text-[10px] font-bold uppercase border border-emerald-100"
+                >Public</span
+              >
+            </td>
+            <td class="px-8 py-5 text-right">
+              <div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all">
+                <button
+                  class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer
+    class="h-16 bg-white border-t border-slate-200 px-8 flex items-center justify-between shrink-0"
+  >
+    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+      Showing <span class="text-slate-900">1-12</span> of 12 Categories
+    </p>
+    <div class="flex items-center gap-1">
+      <button class="p-2 text-slate-400 opacity-20" disabled>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+      <div class="flex items-center gap-1 mx-2">
+        <button
+          class="w-8 h-8 rounded-lg bg-slate-900 text-white text-xs font-bold shadow-md shadow-slate-200"
+        >
+          1
         </button>
       </div>
-    </header>
+      <button class="p-2 text-slate-400 opacity-20" disabled>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </footer>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md"></div>
+    <div
+      class="bg-white rounded-[3rem] shadow-2xl w-full max-w-xl relative z-10 overflow-hidden border border-white"
+    >
       <div
-        class="bg-white border border-slate-200 rounded-[2.5rem] p-8 hover:shadow-xl hover:shadow-slate-200/50 transition-all group relative"
+        class="px-10 py-8 border-b border-slate-50 flex justify-between items-center bg-white/80 backdrop-blur-sm"
       >
-        <div
-          class="h-12 w-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 border border-blue-100"
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 tracking-tight">Category Setup</h3>
+          <p class="text-[10px] text-slate-400 uppercase tracking-widest font-black mt-0.5">
+            Taxonomy Settings
+          </p>
+        </div>
+        <button
+          class="text-slate-400 hover:text-slate-900 p-2 hover:bg-slate-50 rounded-full transition-all"
         >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+              d="M6 18L18 6M6 6l12 12"
             />
           </svg>
-        </div>
-        <h3 class="font-bold text-slate-900 text-lg">Electronics</h3>
-        <p class="text-slate-400 text-xs font-medium uppercase tracking-widest mt-1">
-          Gadgets & Gear
-        </p>
-        <div class="mt-8 flex items-center justify-between">
-          <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full"
-            >24 Items</span
+        </button>
+      </div>
+
+      <form class="p-10 space-y-6 max-h-[70vh] overflow-y-auto scrollbar-hide">
+        <div>
+          <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+            >Display Name</label
           >
-          <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <button
-              class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+          <input
+            type="text"
+            placeholder="e.g. Summer Collection"
+            class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-bold"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-5">
+          <div>
+            <label
+              class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+              >URL Slug</label
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="relative">
+              <span
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 font-mono text-xs"
+                >/</span
+              >
+              <input
+                type="text"
+                placeholder="summer-items"
+                class="w-full pl-7 pr-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-mono"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+              >Visibility Status</label
+            >
+            <select
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm appearance-none cursor-pointer"
+            >
+              <option>Public</option>
+              <option>Hidden</option>
+              <option>Archived</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-black text-slate-400 uppercase mb-4 tracking-widest"
+            >Identify Icon</label
+          >
+          <div class="flex gap-3">
+            <button
+              type="button"
+              class="h-12 w-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center transition-all"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
-                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="h-12 w-12 rounded-2xl bg-slate-50 text-slate-400 border border-slate-100 flex items-center justify-center hover:bg-white transition-all"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 11V7a4 4 0 11-8 0m-3.359 13.514L21 21H3l1.359-7.486A2 2 0 016.327 12h11.346a2 2 0 011.968 1.514z"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="h-12 w-12 rounded-2xl bg-slate-50 text-slate-400 border border-slate-100 flex items-center justify-center hover:bg-white transition-all"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12z"
                 />
               </svg>
             </button>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- hidden for now -->
-    <div class="fixed inset-0 z-100 flex items-center justify-center p-4 hidden">
-      <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md"></div>
-
-      <div
-        class="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-xl relative z-10 overflow-hidden transform transition-all"
-      >
-        <div
-          class="px-10 py-8 border-b border-slate-50 flex justify-between items-center bg-white/50 backdrop-blur-sm"
-        >
-          <div>
-            <h3 class="text-xl font-semibold text-slate-900 tracking-tight">New Category</h3>
-            <p class="text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">
-              Define taxonomy & organization
-            </p>
-          </div>
+        <div class="flex gap-4 pt-4">
           <button
-            class="text-slate-400 hover:text-slate-900 p-2 hover:bg-slate-50 rounded-full transition-all"
+            type="button"
+            class="flex-1 px-6 py-4 text-sm font-bold text-slate-400 hover:text-slate-900 transition-all rounded-2xl hover:bg-slate-50"
           >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            Discard
+          </button>
+          <button
+            type="submit"
+            class="flex-1 bg-slate-900 text-white px-6 py-4 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 hover:bg-slate-800 transition-all active:scale-95"
+          >
+            Save Category
           </button>
         </div>
-
-        <form class="p-10 space-y-8 overflow-y-auto max-h-[75vh]">
-          <div class="space-y-6">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="col-span-2">
-                <label
-                  for="categoryDisplayName"
-                  class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                  >Category Display Name</label
-                >
-                <input
-                  id="categoryDisplayName"
-                  type="text"
-                  placeholder="e.g. Summer Collection"
-                  class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all"
-                />
-              </div>
-              <div>
-                <label
-                  for="urlSlug"
-                  class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                  >URL Slug</label
-                >
-                <div class="relative">
-                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-xs"
-                    >/</span
-                  >
-                  <input
-                    id="urlSlug"
-                    type="text"
-                    placeholder="summer-items"
-                    class="w-full pl-7 pr-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-mono"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  for="visibility"
-                  class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                  >Visibility</label
-                >
-                <select
-                  id="visibility"
-                  class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all appearance-none cursor-pointer"
-                >
-                  <option>Public</option>
-                  <option>Hidden</option>
-                  <option>Archived</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label
-                for="identifyIcon"
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                >Identify Icon</label
-              >
-              <div class="flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  class="h-12 w-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-200 transition-all"
-                >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  class="h-12 w-12 rounded-xl bg-white border border-slate-100 text-slate-400 hover:border-slate-300 flex items-center justify-center transition-all"
-                >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12z"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  class="h-12 w-12 rounded-xl bg-white border border-slate-100 text-slate-400 hover:border-slate-300 flex items-center justify-center transition-all"
-                >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M16 11V7a4 4 0 11-8 0m-3.359 13.514L21 21H3l1.359-7.486A2 2 0 016.327 12h11.346a2 2 0 011.968 1.514z"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <label
-              for="seoDescription"
-              class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-              >SEO Description</label
-            >
-            <textarea
-              id="seoDescription"
-              rows="3"
-              placeholder="Describe this category for search engines..."
-              class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all resize-none"
-            ></textarea>
-          </div>
-
-          <div class="flex gap-3 pt-6">
-            <button
-              type="button"
-              class="flex-1 px-6 py-4 text-sm font-bold text-slate-400 hover:text-slate-900 transition-all"
-            >
-              Discard
-            </button>
-            <button
-              type="submit"
-              class="flex-1 bg-slate-900 text-white px-6 py-4 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 hover:bg-slate-800 transition-all"
-            >
-              Create Category
-            </button>
-          </div>
-        </form>
-      </div>
+      </form>
     </div>
   </div>
 </div>

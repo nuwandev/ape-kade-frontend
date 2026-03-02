@@ -9,16 +9,29 @@ import { Overview } from './page/dashboard/overview/overview';
 import { Category } from './page/dashboard/category/category';
 import { PlaceOrder } from './page/dashboard/place-order/place-order';
 import { OrderHistory } from './page/dashboard/order-history/order-history';
+import { authGuard } from './auth-guard';
+import { guestGuard } from './guest-guard';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: Login,
+    canActivate: [guestGuard],
+  },
+  {
+    path: 'register',
+    component: Register,
+    canActivate: [guestGuard],
   },
   {
     path: 'dashboard',
     component: Dashboard,
+    canActivate: [authGuard],
     children: [
       {
         path: '',
@@ -49,13 +62,5 @@ export const routes: Routes = [
         component: OrderHistory,
       },
     ],
-  },
-  {
-    path: 'login',
-    component: Login,
-  },
-  {
-    path: 'register',
-    component: Register,
   },
 ];

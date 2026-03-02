@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { catchError, debounceTime, distinctUntilChanged, of, switchMap, tap } from 'rxjs';
-import { PageResponse, TCustomer } from 'types/index';
+import { CustomerResponse, PageResponse } from 'types/index';
 
 @Component({
   selector: 'app-customer',
@@ -25,7 +25,7 @@ export class Customer {
   showModal = signal(false);
   currentEditId = signal<string | null>(null);
 
-  customerResponse = signal<PageResponse<TCustomer> | null>(null);
+  customerResponse = signal<PageResponse<CustomerResponse> | null>(null);
 
   isLoading = signal(false);
   errorMessage = signal<string | null>(null);
@@ -79,12 +79,12 @@ export class Customer {
 
   private fetchData(page: number, query: string) {
     if (query.trim()) {
-      return this.http.get<PageResponse<TCustomer>>(`${this.API_URL}/search`, {
+      return this.http.get<PageResponse<CustomerResponse>>(`${this.API_URL}/search`, {
         params: { q: query },
       });
     }
 
-    return this.http.get<PageResponse<TCustomer>>(this.API_URL, {
+    return this.http.get<PageResponse<CustomerResponse>>(this.API_URL, {
       params: {
         page: page.toString(),
         size: this.size().toString(),
@@ -104,7 +104,7 @@ export class Customer {
     this.page.set(p);
   }
 
-  openModal(customer?: TCustomer) {
+  openModal(customer?: CustomerResponse) {
     this.currentEditId.set(customer?.id || null);
     this.showModal.set(true);
     if (customer) {

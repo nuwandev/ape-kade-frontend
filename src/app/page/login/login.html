@@ -1,92 +1,181 @@
 <section class="min-h-screen bg-slate-50 flex items-center justify-center p-6 font-sans">
-  <div class="w-full max-w-105">
+  <div class="w-full max-w-5xl">
     <div
-      class="bg-white rounded-[2.5rem] border border-slate-200/60 shadow-2xl shadow-slate-200/50 p-8 md:p-12"
+      class="bg-white rounded-[3rem] border border-slate-200/60 shadow-2xl shadow-slate-200/50 overflow-hidden"
     >
-      <div class="mb-10 flex items-center justify-between">
-        <div>
-          <h1 class="text-2xl font-bold text-slate-900 uppercase tracking-tight">Sign In</h1>
-          <p class="text-slate-500 text-sm mt-1 font-medium">Access your terminal</p>
-        </div>
+      <div class="flex flex-col md:flex-row">
         <div
-          class="h-14 w-14 bg-slate-900 rounded-2xl flex items-center justify-center p-2 shadow-lg shadow-slate-200 group hover:rotate-6 transition-transform"
+          class="hidden md:flex md:w-5/12 bg-slate-900 p-12 flex-col justify-between items-start"
         >
-          <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain" />
+          <div class="space-y-8">
+            <div
+              class="h-16 w-16 bg-white/10 rounded-2xl flex items-center justify-center p-3 backdrop-blur-xl"
+            >
+              <img src="/logo.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
+
+            <div class="space-y-4">
+              <h2 class="text-3xl font-bold text-white leading-tight">Secure Terminal Access</h2>
+              <p class="text-slate-400 text-sm font-medium leading-relaxed">
+                Authentication required. Log in to manage your inventory and oversee store
+                operations.
+              </p>
+            </div>
+
+            <div class="space-y-4 pt-4">
+              <div
+                class="flex items-center gap-3 text-slate-300 text-xs font-bold uppercase tracking-widest"
+              >
+                <span class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></span>
+                Terminal Node Active
+              </div>
+              <div
+                class="flex items-center gap-3 text-slate-400 text-[10px] font-bold uppercase tracking-widest opacity-60"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
+                </svg>
+                SSL 256-bit Encryption
+              </div>
+            </div>
+          </div>
+
+          <div class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+            ApeKade Systems v1.0.4
+          </div>
+        </div>
+
+        <div class="w-full md:w-7/12 p-8 md:p-16">
+          <div class="mb-10 flex items-center justify-between md:block">
+            <div class="md:mb-2">
+              <h1 class="text-2xl font-bold text-slate-900 uppercase tracking-tight">Sign In</h1>
+              <p class="text-slate-500 text-sm mt-1 font-medium">Please enter your credentials</p>
+            </div>
+            <div
+              class="md:hidden h-12 w-12 bg-slate-900 rounded-xl flex items-center justify-center p-2"
+            >
+              <img src="/logo.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-6">
+            <div>
+              <div class="flex justify-between items-end mb-2 px-1">
+                <label
+                  class="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em]"
+                >
+                  Terminal ID or Email
+                </label>
+
+                @if (loginForm.get('identifier')?.invalid && loginForm.get('identifier')?.touched) {
+                  <span
+                    class="text-[9px] font-black text-red-500 uppercase tracking-tighter animate-pulse"
+                  >
+                    @if (loginForm.get('identifier')?.errors?.['required']) {
+                      Required
+                    } @else if (loginForm.get('identifier')?.errors?.['minlength']) {
+                      Min 3 Chars
+                    }
+                  </span>
+                }
+              </div>
+
+              <input
+                formControlName="identifier"
+                type="text"
+                placeholder="admin@apekade.com"
+                [class.border-red-400]="
+                  loginForm.get('identifier')?.invalid && loginForm.get('identifier')?.touched
+                "
+                class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl text-sm font-semibold outline-none focus:ring-4 focus:ring-slate-900/5 focus:bg-white focus:border-slate-300 transition-all placeholder:text-slate-300"
+              />
+            </div>
+
+            <div>
+              <div class="flex justify-between items-end mb-2 px-1">
+                <div class="flex items-center gap-3">
+                  <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em]"
+                    >Security Key</label
+                  >
+                  @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                    <span class="text-[9px] font-black text-red-500 uppercase tracking-tighter">
+                      @if (loginForm.get('password')?.errors?.['required']) {
+                        Required
+                      } @else if (loginForm.get('password')?.errors?.['minlength']) {
+                        Min 6 Chars
+                      }
+                    </span>
+                  }
+                </div>
+                <a
+                  href="#"
+                  class="text-[10px] font-bold text-slate-900 hover:text-slate-600 tracking-widest uppercase transition-colors"
+                  >Forgot?</a
+                >
+              </div>
+
+              <input
+                formControlName="password"
+                type="password"
+                placeholder="••••••••••••"
+                [class.border-red-400]="
+                  loginForm.get('password')?.invalid && loginForm.get('password')?.touched
+                "
+                class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl text-sm font-semibold outline-none focus:ring-4 focus:ring-slate-900/5 focus:bg-white focus:border-slate-300 transition-all placeholder:text-slate-300"
+              />
+            </div>
+
+            <div class="pt-4">
+              <button
+                type="submit"
+                [disabled]="loginForm.invalid"
+                class="w-full bg-slate-900 hover:bg-slate-800 disabled:bg-slate-200 disabled:text-slate-400 disabled:shadow-none disabled:cursor-not-allowed text-white text-sm font-bold py-5 rounded-2xl shadow-xl shadow-slate-200 transition-all active:scale-[0.98] flex items-center justify-center gap-3"
+              >
+                @if (isLoading()) {
+                  <svg
+                    class="animate-spin h-5 w-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 4v1.586a2 2 0 001.106 1.79l2.707 1.562a2 2 0 002.788-.894l1.38-2.33a2 2 0 011.79-1.106H20M12 4v1.586a2 2 0 00-1.106 1.79l-2.707 1.562a2 2 0 00-.788 2.894l1.38 2.33a2 2 0 011.106 1.79V20"
+                    />
+                  </svg>
+                } @else {
+                  Access Terminal
+                }
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <p class="text-center text-xs font-bold text-slate-400 pt-4 uppercase tracking-tighter">
+              New to the system?
+              <a
+                routerLink="/register"
+                class="text-slate-900 underline underline-offset-4 decoration-2 decoration-slate-200 ml-1"
+              >
+                Register Store
+              </a>
+            </p>
+          </form>
         </div>
       </div>
-
-      <form class="space-y-6">
-        <div>
-          <label
-            for="workEmail"
-            class="block mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] ml-1"
-            >Work Email</label
-          >
-          <input
-            id="workEmail"
-            type="email"
-            placeholder="admin@apekade.com"
-            class="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-2xl text-sm font-semibold outline-none focus:ring-4 focus:ring-slate-900/5 focus:bg-white focus:border-slate-300 transition-all placeholder:text-slate-300"
-            required
-          />
-        </div>
-
-        <div>
-          <div class="flex justify-between mb-2 px-1">
-            <label
-              for="securityKey"
-              class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em]"
-              >Security Key</label
-            >
-            <a
-              href="#"
-              class="text-[10px] font-bold text-slate-900 hover:text-slate-600 tracking-widest uppercase transition-colors"
-              >Forgot?</a
-            >
-          </div>
-          <input
-            id="securityKey"
-            type="password"
-            placeholder="••••••••"
-            class="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-2xl text-sm font-semibold outline-none focus:ring-4 focus:ring-slate-900/5 focus:bg-white focus:border-slate-300 transition-all placeholder:text-slate-300"
-            required
-          />
-        </div>
-
-        <button
-          type="submit"
-          routerLink="/dashboard"
-          class="w-full bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold py-4 rounded-2xl shadow-xl shadow-slate-200 transition-all active:scale-[0.98] flex items-center justify-center gap-2 group mt-2"
-        >
-          Enter Dashboard
-          <svg
-            class="w-4 h-4 group-hover:translate-x-1 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M13 7l5 5m0 0l-5 5m5-5H6"
-            />
-          </svg>
-        </button>
-
-        <p class="text-center text-xs font-bold text-slate-400 pt-4 uppercase tracking-tighter">
-          Don't have a store account?
-          <a
-            routerLink="/register"
-            class="text-slate-900 font-bold underline underline-offset-4 decoration-2 decoration-slate-200 transition-all"
-            >Create Store</a
-          >
-        </p>
-      </form>
     </div>
-
-    <p class="text-center mt-8 text-[10px] font-black text-slate-300 uppercase tracking-[0.4em]">
-      ApeKade v1.0.4
-    </p>
   </div>
 </section>

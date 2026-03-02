@@ -1,72 +1,70 @@
-export type TCustomer = {
+export interface LoginRequest {
+  identifier: string;
+  password: string;
+}
+
+export interface RegisterRequest {
+  username: string;
+  email: string;
+  password: string;
+  fullName: string;
+}
+export interface CustomerResponse {
   id: string;
   title: string;
   name: string;
-  dob: Date;
+  dob: string;
   salary: number;
   address: string;
   city: string;
   province: string;
   postalCode: string;
-};
+}
 
-export type TCategory = {
+export type CategoryVisibility = 'PUBLIC' | 'HIDDEN' | 'ARCHIVED';
+
+export interface CategoryResponse {
   id: string;
-  name: string;
+  displayName: string;
+  tagline: string;
   slug: string;
-  subHeader?: string;
-  description?: string;
-  icon?: string;
-  visibility: 'PUBLIC' | 'HIDDEN' | 'ARCHIVED';
+  visibility: CategoryVisibility;
+  icon: string;
+  seoDescription: string;
+  createdAt: string;
   itemCount: number;
-};
+}
 
-export type TInventoryItem = {
+export interface ItemResponse {
   id: string;
   sku: string;
   name: string;
-  description?: string;
-  categoryId: string;
+  description: string;
   price: number;
-  stockQuantity: number;
+  currentStock: number;
   alertLevel: number;
-  status: 'IN_STOCK' | 'LOW_STOCK' | 'OUT_OF_STOCK';
-};
+  category: CategoryResponse;
+  updatedAt: string;
+  createdAt: string;
+}
 
-export type PageResponse<T> = {
+export interface AuthResponse {
+  username: string;
+  fullName: string;
+  role: string;
+}
+
+export interface PageResponse<T> {
   content: T[];
   page: number;
   size: number;
   totalElements: number;
   totalPages: number;
-};
+}
 
-export type TOrderStatus = 'PENDING' | 'COMPLETED' | 'CANCELLED' | 'SHIPPED';
-
-export type TOrderItem = {
-  productId: string;
-  productName: string;
-  quantity: number;
-  unitPrice: number;
-  subtotal: number;
-};
-
-export type TOrder = {
-  id: string;
-  customerId: string;
-  customerName: string;
-  orderDate: string | Date;
-  status: TOrderStatus;
-  items: TOrderItem[];
-  totalAmount: number;
-  source: string;
-};
-
-export type TCreateOrderDTO = {
-  customerId: string;
-  items: {
-    productId: string;
-    quantity: number;
-  }[];
-  source: 'STORE_POS';
-};
+export interface ApiResponse<T> {
+  success: boolean;
+  message: string;
+  data: T;
+  timestamp: string;
+}
