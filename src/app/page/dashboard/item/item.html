@@ -1,371 +1,373 @@
-<div class="min-h-screen bg-[#FBFBFC] p-4 md:p-10 font-sans antialiased text-slate-900">
-  <div class="max-w-7xl mx-auto space-y-8">
-    <header class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-      <div>
-        <h1 class="text-3xl font-semibold tracking-tight text-slate-900">Inventory Items</h1>
-        <p class="text-slate-500 text-sm mt-1">
-          Monitor stock levels, pricing, and product categories.
-        </p>
-      </div>
+<div class="flex flex-col h-full bg-slate-50 overflow-hidden font-sans antialiased text-slate-900">
+  <header
+    class="h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between shrink-0 z-10"
+  >
+    <div class="flex items-center gap-4">
+      <h1 class="text-lg font-bold tracking-tight">Inventory Items</h1>
+      <span
+        class="px-2 py-0.5 rounded bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest border border-blue-100"
+      >
+        48 Total Products
+      </span>
+    </div>
 
-      <div class="flex flex-wrap items-center gap-3">
-        <div class="relative group">
-          <span
-            class="absolute inset-y-0 left-3.5 flex items-center text-slate-400 group-focus-within:text-blue-500 transition-colors"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </span>
-          <input
-            type="text"
-            placeholder="Search items..."
-            class="pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none w-full md:w-64 text-sm transition-all shadow-sm"
-          />
-        </div>
-        <button
-          class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-xl text-sm font-medium flex items-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-slate-200"
-        >
+    <div class="flex-1 max-w-md mx-8">
+      <div class="relative">
+        <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-          Add Item
-        </button>
-      </div>
-    </header>
-
-    <div class="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm text-left border-collapse">
-          <thead>
-            <tr
-              class="bg-slate-50/50 border-b border-slate-100 text-slate-400 font-medium uppercase text-[10px] tracking-widest"
-            >
-              <th class="px-8 py-5">Product Details</th>
-              <th class="px-8 py-5">Category</th>
-              <th class="px-8 py-5">Inventory</th>
-              <th class="px-8 py-5">Price</th>
-              <th class="px-8 py-5 text-right">Actions</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-50">
-            <tr class="hover:bg-slate-50/50 transition-colors group">
-              <td class="px-8 py-5">
-                <div class="flex items-center gap-4">
-                  <div
-                    class="h-10 w-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-[10px] border border-blue-100 uppercase"
-                  >
-                    TS
-                  </div>
-                  <div>
-                    <div class="font-semibold text-slate-900">Classic T-Shirt</div>
-                    <div class="text-[10px] text-slate-400 font-mono">SKU: TS-001</div>
-                  </div>
-                </div>
-              </td>
-              <td class="px-8 py-5 text-slate-600">Apparel</td>
-              <td class="px-8 py-5">
-                <div class="text-slate-900 font-medium">124 units</div>
-                <div class="text-[10px] text-emerald-500 font-medium">In Stock</div>
-              </td>
-              <td class="px-8 py-5 font-mono font-semibold text-slate-900 text-xs">$25.00</td>
-              <td class="px-8 py-5 text-right">
-                <div
-                  class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all"
-                >
-                  <button
-                    class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50/50 transition-colors group">
-              <td class="px-8 py-5">
-                <div class="flex items-center gap-4">
-                  <div
-                    class="h-10 w-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-[10px] border border-blue-100 uppercase"
-                  >
-                    WL
-                  </div>
-                  <div>
-                    <div class="font-semibold text-slate-900">Leather Wallet</div>
-                    <div class="text-[10px] text-slate-400 font-mono">SKU: WL-98</div>
-                  </div>
-                </div>
-              </td>
-              <td class="px-8 py-5 text-slate-600">Accessories</td>
-              <td class="px-8 py-5">
-                <div class="text-slate-900 font-medium">8 units</div>
-                <div class="text-[10px] text-red-500 font-bold">Low Stock</div>
-              </td>
-              <td class="px-8 py-5 font-mono font-semibold text-slate-900 text-xs">$49.00</td>
-              <td class="px-8 py-5 text-right">
-                <div
-                  class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all"
-                >
-                  <button
-                    class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div
-        class="px-8 py-5 bg-slate-50/50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4"
-      >
-        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-          Showing <span class="text-slate-900">1-10</span> of 48 Items
-        </p>
-        <div class="flex items-center gap-2">
-          <button
-            class="p-2 text-slate-400 hover:text-slate-900 disabled:opacity-20 transition-colors"
-            disabled
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-          <div class="flex items-center gap-1">
-            <button
-              class="w-8 h-8 rounded-lg bg-slate-900 text-white text-xs font-bold transition-all shadow-md shadow-slate-200"
-            >
-              1
-            </button>
-            <button
-              class="w-8 h-8 rounded-lg text-slate-400 hover:bg-white hover:text-slate-900 text-xs font-bold transition-all"
-            >
-              2
-            </button>
-            <button
-              class="w-8 h-8 rounded-lg text-slate-400 hover:bg-white hover:text-slate-900 text-xs font-bold transition-all"
-            >
-              3
-            </button>
-          </div>
-          <button class="p-2 text-slate-400 hover:text-slate-900 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-        </div>
+        </span>
+        <input
+          type="text"
+          placeholder="Quick search SKU or name..."
+          class="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-xl focus:ring-2 focus:ring-blue-500/20 transition-all outline-none text-sm"
+        />
       </div>
     </div>
 
-    <!--hidden for now-->
-    <div class="fixed inset-0 z-100 flex items-center justify-center p-4 hidden">
-      <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md"></div>
+    <button
+      class="bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all active:scale-95 flex items-center gap-2 shadow-lg shadow-slate-200"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      </svg>
+      Add Item
+    </button>
+  </header>
 
+  <main class="flex-1 overflow-y-auto p-6 scrollbar-hide">
+    <div class="bg-white border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-slate-50/50 border-b border-slate-100">
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Product Info
+            </th>
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Category
+            </th>
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Inventory
+            </th>
+            <th class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Price
+            </th>
+            <th
+              class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-right"
+            >
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-50">
+          <tr class="hover:bg-slate-50/50 transition-colors group">
+            <td class="px-8 py-5">
+              <div class="flex items-center gap-4">
+                <div
+                  class="h-10 w-10 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400 border border-slate-100 group-hover:rotate-6 transition-transform"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Premium Leather Wallet</p>
+                  <p class="text-[11px] text-slate-400 font-medium font-mono">SKU-WL-98</p>
+                </div>
+              </div>
+            </td>
+            <td class="px-8 py-5">
+              <span
+                class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[10px] font-bold uppercase"
+                >Accessories</span
+              >
+            </td>
+            <td class="px-8 py-5">
+              <div class="flex flex-col gap-1.5">
+                <div class="flex items-center justify-between w-32">
+                  <span class="text-[10px] font-bold text-orange-600 uppercase tracking-tighter"
+                    >Low Stock</span
+                  >
+                  <span class="text-xs font-bold text-slate-900">08</span>
+                </div>
+                <div class="w-32 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-orange-500 rounded-full w-[20%]"></div>
+                </div>
+              </div>
+            </td>
+            <td class="px-8 py-5 text-sm font-black text-slate-900">$45.00</td>
+            <td class="px-8 py-5 text-right">
+              <div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all">
+                <button
+                  class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div
+      class="hidden flex flex-col items-center justify-center py-24 bg-white border border-dashed border-slate-200 rounded-[3rem]"
+    >
       <div
-        class="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-xl relative z-10 overflow-hidden transform transition-all"
+        class="h-20 w-20 bg-slate-50 rounded-[2rem] flex items-center justify-center text-slate-200 mb-6"
       >
-        <div
-          class="px-10 py-8 border-b border-slate-50 flex justify-between items-center bg-white/50 backdrop-blur-sm sticky top-0"
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+          />
+        </svg>
+      </div>
+      <h3 class="text-lg font-bold text-slate-900">No items found</h3>
+      <p class="text-sm text-slate-400 mt-1 max-w-xs text-center">
+        We couldn't find any products matching your search or filters.
+      </p>
+      <button
+        class="mt-6 px-6 py-2.5 bg-slate-100 text-slate-600 rounded-xl text-xs font-bold hover:bg-slate-200 transition-all"
+      >
+        Clear All Filters
+      </button>
+    </div>
+
+    <div
+      class="hidden flex flex-col items-center justify-center py-12 bg-red-50/50 border border-red-100 rounded-[3rem]"
+    >
+      <div
+        class="h-12 w-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mb-4"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+          />
+        </svg>
+      </div>
+      <p class="text-sm font-bold text-red-900">Failed to load inventory</p>
+      <button class="mt-3 text-xs font-bold text-red-600 underline">Try Refreshing</button>
+    </div>
+  </main>
+
+  <footer
+    class="h-16 bg-white border-t border-slate-200 px-8 flex items-center justify-between shrink-0"
+  >
+    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+      Showing <span class="text-slate-900">1-10</span> of 48 Items
+    </p>
+    <div class="flex items-center gap-1">
+      <button
+        class="p-2 text-slate-400 hover:bg-slate-100 rounded-xl transition-all disabled:opacity-20"
+        disabled
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+      <div class="flex items-center gap-1 mx-2">
+        <button
+          class="w-8 h-8 rounded-lg bg-slate-900 text-white text-xs font-bold transition-all shadow-md shadow-slate-200"
         >
-          <div>
-            <h3 class="text-xl font-semibold text-slate-900 tracking-tight">Product Details</h3>
-            <p class="text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">
-              Inventory Configuration
-            </p>
+          1
+        </button>
+        <button
+          class="w-8 h-8 rounded-lg text-slate-400 hover:bg-slate-50 text-xs font-bold transition-all"
+        >
+          2
+        </button>
+      </div>
+      <button class="p-2 text-slate-400 hover:bg-slate-100 rounded-xl transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <div class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md"></div>
+
+    <div
+      class="bg-white rounded-[3rem] shadow-2xl w-full max-w-xl relative z-10 overflow-hidden transform transition-all border border-white"
+    >
+      <div
+        class="px-10 py-8 border-b border-slate-50 flex justify-between items-center bg-white/80 backdrop-blur-sm"
+      >
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 tracking-tight">Product Configuration</h3>
+          <p class="text-[10px] text-slate-400 uppercase tracking-widest font-black mt-0.5">
+            Inventory Settings
+          </p>
+        </div>
+        <button
+          class="text-slate-400 hover:text-slate-900 p-2 hover:bg-slate-50 rounded-full transition-all"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <form class="p-10 space-y-6 max-h-[70vh] overflow-y-auto scrollbar-hide">
+        <div class="grid grid-cols-6 gap-5">
+          <div class="col-span-2">
+            <label
+              class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+              >SKU Code</label
+            >
+            <input
+              type="text"
+              placeholder="SKU-01"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-mono"
+            />
           </div>
-          <button
-            class="text-slate-400 hover:text-slate-900 p-2 hover:bg-slate-50 rounded-full transition-all"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+          <div class="col-span-4">
+            <label
+              class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+              >Product Name</label
+            >
+            <input
+              type="text"
+              placeholder="e.g. Premium Wallet"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-bold"
+            />
+          </div>
         </div>
 
-        <form class="p-10 space-y-6 overflow-y-auto max-h-[75vh]">
-          <div class="grid grid-cols-6 gap-4">
-            <div class="col-span-2">
-              <label
-                for="skuCode"
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                >SKU Code</label
-              >
-              <input
-                id="skuCode"
-                type="text"
-                placeholder="TS-01"
-                class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-mono"
-              />
-            </div>
-            <div class="col-span-4">
-              <label
-                for="productName"
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                >Product Name</label
-              >
-              <input
-                id="productName"
-                type="text"
-                placeholder="e.g. Classic T-Shirt"
-                class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all"
-              />
-            </div>
-          </div>
-
+        <div class="grid grid-cols-2 gap-5">
           <div>
             <label
-              for="description"
-              class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-              >Description</label
+              class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+              >Category</label
             >
-            <textarea
-              id="description"
-              rows="3"
-              placeholder="Add product details..."
-              class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all resize-none"
-            ></textarea>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label
-                for="category"
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                >Category</label
-              >
+            <div class="relative">
               <select
-                id="category"
-                class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all appearance-none cursor-pointer"
+                class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all appearance-none cursor-pointer"
               >
                 <option>Apparel</option>
                 <option>Footwear</option>
                 <option>Accessories</option>
               </select>
+              <span
+                class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </span>
             </div>
-            <div>
-              <label
-                for="price"
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                >Price (USD)</label
+          </div>
+          <div>
+            <label
+              class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+              >Unit Price</label
+            >
+            <div class="relative">
+              <span
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold"
+                >$</span
               >
               <input
-                id="price"
                 type="number"
                 placeholder="0.00"
-                class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-mono"
+                class="w-full pl-8 pr-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all font-mono"
               />
             </div>
           </div>
+        </div>
 
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label
-                for="currentStock"
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                >Current Stock</label
-              >
-              <input
-                id="currentStock"
-                type="number"
-                placeholder="0"
-                class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all"
-              />
-            </div>
-            <div>
-              <label
-                for="alertLevel"
-                class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest"
-                >Alert Level</label
-              >
-              <input
-                id="alertLevel"
-                type="number"
-                placeholder="5"
-                class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all"
-              />
-            </div>
+        <div class="grid grid-cols-2 gap-5">
+          <div>
+            <label
+              class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+              >Initial Stock</label
+            >
+            <input
+              type="number"
+              placeholder="100"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all"
+            />
           </div>
+          <div>
+            <label
+              class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+              >Alert Level</label
+            >
+            <input
+              type="number"
+              placeholder="10"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none text-sm transition-all"
+            />
+          </div>
+        </div>
 
-          <div class="flex gap-3 pt-6">
-            <button
-              type="button"
-              class="flex-1 px-6 py-4 text-sm font-bold text-slate-400 hover:text-slate-900 transition-all"
-            >
-              Discard
-            </button>
-            <button
-              type="submit"
-              class="flex-1 bg-slate-900 text-white px-6 py-4 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 hover:bg-slate-800 transition-all"
-            >
-              Save Changes
-            </button>
-          </div>
-        </form>
-      </div>
+        <div class="flex gap-4 pt-4">
+          <button
+            type="button"
+            class="flex-1 px-6 py-4 text-sm font-bold text-slate-400 hover:text-slate-900 transition-all rounded-2xl hover:bg-slate-50"
+          >
+            Discard
+          </button>
+          <button
+            type="submit"
+            class="flex-1 bg-slate-900 text-white px-6 py-4 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 hover:bg-slate-800 transition-all active:scale-95"
+          >
+            Save Product
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
