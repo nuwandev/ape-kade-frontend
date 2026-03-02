@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { ApiResponse, CategoryResponse } from 'models';
+import { ApiResponse, CategoryRequest, CategoryResponse } from 'models';
 
 @Injectable({
   providedIn: 'root',
@@ -11,5 +11,32 @@ export class CategoryService {
 
   getCategories() {
     return this.http.get<ApiResponse<CategoryResponse[]>>(this.apiUrl, { withCredentials: true });
+  }
+
+  createCategory(request: CategoryRequest) {
+    return this.http.post<ApiResponse<CategoryResponse>>(this.apiUrl, request, {
+      withCredentials: true,
+    });
+  }
+
+  updateCategory(id: string, request: CategoryRequest) {
+    return this.http.put<ApiResponse<CategoryResponse>>(`${this.apiUrl}/${id}`, request, {
+      withCredentials: true,
+    });
+  }
+
+  deleteCategory(id: string) {
+    return this.http.delete<ApiResponse<void>>(`${this.apiUrl}/${id}`, {
+      withCredentials: true,
+    });
+  }
+
+  isSlugAvailable(slug: string, excludeId?: string) {
+    const url = `${this.apiUrl}/check-slug/${encodeURIComponent(slug)}`;
+
+    return this.http.get<ApiResponse<boolean>>(url, {
+      params: excludeId ? { excludeId } : {},
+      withCredentials: true,
+    });
   }
 }
