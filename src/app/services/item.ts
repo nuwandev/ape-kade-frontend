@@ -9,12 +9,12 @@ export class ItemService {
   private readonly http = inject(HttpClient);
   private readonly apiUrl = 'http://localhost:8080/items';
 
-  getItems(page: number, size: number, search?: string) {
+  getItems(page: number, size: number, q?: string) {
     return this.http.get<ApiResponse<PageResponse<ItemResponse>>>(this.apiUrl, {
       params: {
         page: page.toString(),
         size: size.toString(),
-        search: search || '',
+        q: q || '',
       },
       withCredentials: true,
     });

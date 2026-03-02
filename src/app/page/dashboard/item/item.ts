@@ -1,11 +1,13 @@
 import { DecimalPipe, NgClass } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PaginatorComponent } from '@app/component/paginator/paginator';
 import { CategoryService } from '@app/services/category';
 import { ItemService } from '@app/services/item';
 import { ToastService } from '@app/services/toast';
 import { CategoryResponse, ItemRequest, ItemResponse } from 'models';
+import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-item',
@@ -41,15 +43,41 @@ export class Item implements OnInit {
   categories = signal<CategoryResponse[]>([]);
   searchQuery = signal('');
 
-  ngOnInit(): void {
-    this.getCategories();
-    this.getItems();
+  constructor() {
+    toObservable(
+      computed(() => ({
+        page: this.page(),
+        query: this.searchQuery(),
+        size: this.size(),
+      })),
+    )
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged((prev, curr) => JSON.stringify(prev) === JSON.stringify(curr)),
+        tap(() => this.isLoading.set(true)),
+        takeUntilDestroyed(),
+        switchMap((params) => this.itemService.getItems(params.page, params.size, params.query)),
+      )
+      .subscribe({
+        next: (res) => {
+          this.items.set(res.data.content);
+          this.totalElements.set(res.data.totalElements);
+          this.isLoading.set(false);
+        },
+        error: (err) => {
+          this.toast.show('Error fetching items', 'error');
+          this.isLoading.set(false);
+        },
+      });
   }
 
+  ngOnInit(): void {
+    this.getCategories();
+  }
   onSearch(e: Event) {
-    this.searchQuery.set((e.target as HTMLInputElement).value);
+    const value = (e.target as HTMLInputElement).value;
+    this.searchQuery.set(value);
     this.page.set(0);
-    this.getItems();
   }
 
   onEdit(item: ItemResponse) {
