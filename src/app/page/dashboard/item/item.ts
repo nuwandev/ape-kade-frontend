@@ -65,7 +65,7 @@ export class Item implements OnInit {
           this.isLoading.set(false);
         },
         error: (err) => {
-          this.toast.show('Error fetching items', 'error');
+          this.toast.show(err?.error.message || 'Error fetching items', 'error');
           this.isLoading.set(false);
         },
       });
@@ -128,7 +128,6 @@ export class Item implements OnInit {
         next: () => {
           this.toast.show('Item updated successfully', 'success');
           this.getItems();
-          this.editingItemId.set(null);
           this.closeModel();
         },
         error: (err) => {
@@ -182,6 +181,7 @@ export class Item implements OnInit {
 
   closeModel() {
     this.itemForm.reset();
+    this.editingItemId.set(null);
     this.isModelOpen.set(false);
   }
 }
