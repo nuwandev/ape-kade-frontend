@@ -49,8 +49,8 @@ export interface ItemResponse {
 }
 
 export interface AuthResponse {
-  token: string;
   username: string;
+  fullname: string;
   role: string;
 }
 
