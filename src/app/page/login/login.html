@@ -136,7 +136,23 @@
                 [disabled]="loginForm.invalid"
                 class="w-full bg-slate-900 hover:bg-slate-800 disabled:bg-slate-200 disabled:text-slate-400 disabled:shadow-none disabled:cursor-not-allowed text-white text-sm font-bold py-5 rounded-2xl shadow-xl shadow-slate-200 transition-all active:scale-[0.98] flex items-center justify-center gap-3"
               >
-                Access Terminal
+                @if (isLoading()) {
+                  <svg
+                    class="animate-spin h-5 w-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 4v1.586a2 2 0 001.106 1.79l2.707 1.562a2 2 0 002.788-.894l1.38-2.33a2 2 0 011.79-1.106H20M12 4v1.586a2 2 0 00-1.106 1.79l-2.707 1.562a2 2 0 00-.788 2.894l1.38 2.33a2 2 0 011.106 1.79V20"
+                    />
+                  </svg>
+                } @else {
+                  Access Terminal
+                }
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     stroke-linecap="round"
