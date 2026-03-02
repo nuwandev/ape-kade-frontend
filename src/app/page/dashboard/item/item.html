@@ -168,15 +168,14 @@
     </div>
   </main>
 
-  <footer
-    class="h-16 bg-white border-t border-slate-200 px-8 flex items-center justify-between shrink-0"
-  >
-    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-      Showing
-      <span class="text-slate-900">{{ page() * size() + 1 }}-{{ (page() + 1) * size() }}</span> of
-      {{ totalElements() }} Items
-    </p>
-  </footer>
+  <app-paginator
+    [page]="page()"
+    [size]="size()"
+    [totalElements]="totalElements()"
+    [isLoading]="isLoading()"
+    (pageChange)="page.set($event); getItems()"
+    (sizeChange)="size.set($event); page.set(0); getItems()"
+  />
 
   @if (isModelOpen()) {
     <div class="fixed inset-0 z-100 flex items-center justify-center p-4">

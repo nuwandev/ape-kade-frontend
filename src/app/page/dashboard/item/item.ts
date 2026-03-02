@@ -1,6 +1,7 @@
 import { DecimalPipe, NgClass } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { PaginatorComponent } from '@app/component/paginator/paginator';
 import { CategoryService } from '@app/services/category';
 import { ItemService } from '@app/services/item';
 import { ToastService } from '@app/services/toast';
@@ -8,7 +9,7 @@ import { CategoryResponse, ItemRequest, ItemResponse } from 'models';
 
 @Component({
   selector: 'app-item',
-  imports: [NgClass, DecimalPipe, ReactiveFormsModule],
+  imports: [NgClass, DecimalPipe, ReactiveFormsModule, PaginatorComponent],
   templateUrl: './item.html',
   styleUrl: './item.css',
 })
@@ -47,6 +48,8 @@ export class Item implements OnInit {
 
   onSearch(e: Event) {
     this.searchQuery.set((e.target as HTMLInputElement).value);
+    this.page.set(0);
+    this.getItems();
   }
 
   onEdit(item: ItemResponse) {
@@ -129,6 +132,7 @@ export class Item implements OnInit {
       },
       error: (err) => {
         this.toast.show(err.error?.message || 'Error fetching items', 'error');
+        this.isLoading.set(false);
       },
     });
   }

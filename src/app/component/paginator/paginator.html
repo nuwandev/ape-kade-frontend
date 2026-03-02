@@ -1,0 +1,67 @@
+<footer
+  class="h-16 bg-white border-t border-slate-200 px-8 flex items-center justify-between shrink-0"
+>
+  <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+    Showing
+    <span class="text-slate-900">{{ showingFrom }}-{{ showingTo }}</span>
+    of {{ totalElements }} Items
+  </p>
+  <div class="flex items-center gap-4">
+    <div class="flex items-center gap-2">
+      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest"> Rows </span>
+      <select
+        class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-[11px] font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 appearance-none cursor-pointer"
+        [value]="size"
+        (change)="onSizeChange($event)"
+      >
+        @for (option of pageSizeOptions; track option) {
+          <option [value]="option">{{ option }}</option>
+        }
+      </select>
+    </div>
+    <div class="flex items-center gap-1">
+      <button
+        class="p-2 text-slate-400 hover:bg-slate-100 rounded-xl transition-all disabled:opacity-20"
+        (click)="goToPreviousPage()"
+        [disabled]="page === 0 || isLoading || totalPages === 0"
+        aria-label="Previous page"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+      <div class="flex items-center gap-1 mx-2">
+        <button
+          class="w-8 h-8 rounded-lg bg-slate-900 text-white text-xs font-bold transition-all shadow-md shadow-slate-200"
+          [disabled]="true"
+        >
+          {{ page + 1 }}
+        </button>
+        @if (page + 1 < totalPages) {
+          <button
+            class="w-8 h-8 rounded-lg text-slate-400 hover:bg-slate-50 text-xs font-bold transition-all"
+            (click)="goToPage(page + 1)"
+            [disabled]="isLoading"
+          >
+            {{ page + 2 }}
+          </button>
+        }
+      </div>
+      <button
+        class="p-2 text-slate-400 hover:bg-slate-100 rounded-xl transition-all disabled:opacity-20"
+        (click)="goToNextPage()"
+        [disabled]="page + 1 >= totalPages || isLoading || totalPages === 0"
+        aria-label="Next page"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</footer>
