@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { catchError, debounceTime, distinctUntilChanged, of, switchMap, tap } from 'rxjs';
-import { CustomerResponse, PageResponse } from 'types/index';
+import { CustomerResponse, PageResponse } from 'models/index';
 
 @Component({
   selector: 'app-customer',

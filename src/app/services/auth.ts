@@ -1,7 +1,7 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { ApiResponse, AuthResponse, LoginRequest, RegisterRequest } from 'types/index';
+import { ApiResponse, AuthResponse, LoginRequest, RegisterRequest } from 'models/index';
 import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })

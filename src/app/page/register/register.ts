@@ -3,7 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '@app/services/auth';
 import { ToastService } from '@app/services/toast';
-import { RegisterRequest } from 'types/index';
+import { RegisterRequest } from 'models/index';
 
 @Component({
   selector: 'app-register',

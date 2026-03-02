@@ -3,7 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '@app/services/auth';
 import { ToastService } from '@app/services/toast';
-import { LoginRequest } from 'types/index';
+import { LoginRequest } from 'models/index';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +33,7 @@ export class Login {
         this.isLoading.set(false);
       },
       error: (err) => {
-        this.toast.show(err.error?.message || 'Login failed', 'error')
+        this.toast.show(err.error?.message || 'Login failed', 'error');
         this.isLoading.set(false);
       },
     });
