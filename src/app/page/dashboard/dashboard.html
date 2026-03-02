@@ -214,19 +214,24 @@
     </nav>
 
     <div class="mt-auto pt-6">
-      <div class="p-4 bg-slate-50 rounded-4xl border border-slate-100 flex items-center gap-3">
+      <div class="p-4 bg-slate-100 rounded-4xl border border-slate-100 flex items-center gap-3">
         <div
           class="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-sm"
         >
-          JD
+          {{ auth.userInitials() }}
         </div>
         <div class="flex-1 min-w-0">
-          <p class="text-xs font-bold text-slate-900 truncate">John Doe</p>
+          <p class="text-xs font-bold text-slate-900 truncate">
+            {{ auth.currentUser()?.username }}
+          </p>
           <p class="text-[10px] text-slate-400 font-medium truncate uppercase tracking-tighter">
-            Terminal Manager
+            {{ auth.currentUser()?.role }}
           </p>
         </div>
-        <button class="p-2 text-slate-400 hover:text-red-500 transition-colors">
+        <button
+          (click)="onLogout()"
+          class="p-2 text-slate-400 hover:text-red-500 transition-colors cursor-pointer"
+        >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"

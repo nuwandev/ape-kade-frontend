@@ -1,4 +1,4 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { ApiResponse, AuthResponse, LoginRequest, RegisterRequest } from 'types/index';
@@ -11,6 +11,17 @@ export class AuthService {
   private readonly API_URL = 'http://localhost:8080/auth';
 
   currentUser = signal<AuthResponse | null>(null);
+
+  userInitials = computed(() => {
+    const name = this.currentUser()?.fullName;
+    if (!name) return '??';
+    return name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .substring(0, 2);
+  });
 
   register(data: RegisterRequest): Observable<ApiResponse<void>> {
     return this.http

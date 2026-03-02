@@ -50,7 +50,7 @@ export interface ItemResponse {
 
 export interface AuthResponse {
   username: string;
-  fullname: string;
+  fullName: string;
   role: string;
 }
 
