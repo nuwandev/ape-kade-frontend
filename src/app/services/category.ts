@@ -9,8 +9,11 @@ export class CategoryService {
   private readonly apiUrl = 'http://localhost:8080/categories';
   private readonly http = inject(HttpClient);
 
-  getCategories() {
-    return this.http.get<ApiResponse<CategoryResponse[]>>(this.apiUrl, { withCredentials: true });
+  getCategories(q: string = '') {
+    return this.http.get<ApiResponse<CategoryResponse[]>>(this.apiUrl, {
+      params: { q: q },
+      withCredentials: true,
+    });
   }
 
   createCategory(request: CategoryRequest) {
