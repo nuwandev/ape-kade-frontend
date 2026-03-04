@@ -53,14 +53,19 @@
             <div
               class="h-12 w-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300"
             >
-             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-</svg>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                />
+              </svg>
             </div>
 
             <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
               <button
+                (click)="onUpdate()"
                 class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,16 +92,16 @@
             </div>
           </div>
           <div>
-            <h3 class="text-base font-bold text-slate-900 truncate">{{cat.displayName}}</h3>
+            <h3 class="text-base font-bold text-slate-900 truncate">{{ cat.displayName }}</h3>
             <p class="text-[10px] font-mono text-slate-400 uppercase tracking-tight mb-4">
-              /{{cat.slug}}
+              /{{ cat.slug }}
             </p>
             <div class="flex items-center justify-between pt-4 border-t border-slate-50">
               <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
                 >Inventory</span
               >
               <span class="text-xs font-bold px-2 py-0.5 bg-slate-100 rounded-lg text-slate-600"
-                >{{cat.itemCount}} Items</span
+                >{{ cat.itemCount }} Items</span
               >
             </div>
           </div>
@@ -105,66 +110,152 @@
     </div>
   </main>
 
-  <div class="fixed inset-0 z-100 flex items-center justify-center p-4 hidden">
-    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md"></div>
-    <div
-      class="bg-white rounded-[3rem] shadow-2xl w-full max-w-lg relative z-10 overflow-hidden border border-white"
-    >
-      <div class="px-10 py-8 border-b border-slate-50 flex justify-between items-center">
-        <div>
-          <h3 class="text-xl font-bold text-slate-900 tracking-tight">New Category</h3>
-          <p class="text-[10px] text-slate-400 uppercase tracking-widest font-black mt-0.5">
-            Define product group
-          </p>
-        </div>
-        <button
-          class="text-slate-400 hover:text-slate-900 p-2 hover:bg-slate-50 rounded-full transition-all"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </div>
+  @if (isModelOpen()) {
+    <div class="fixed inset-0 z-100 flex items-center justify-center p-4">
+      <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md" (click)="closeModel()"></div>
 
-      <div class="p-10 space-y-6">
-        <div>
-          <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
-            >Display Name</label
-          >
-          <input
-            type="text"
-            placeholder="e.g. Vegetables"
-            class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:border-slate-900 outline-none text-sm transition-all font-bold"
-          />
-        </div>
-        <div>
-          <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
-            >Slug</label
-          >
-          <input
-            type="text"
-            placeholder="e.g. veg-01"
-            class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:border-slate-900 outline-none text-sm transition-all font-mono"
-          />
-        </div>
-        <div class="flex gap-4 pt-4">
+      <div
+        class="bg-white rounded-[3rem] shadow-2xl w-full max-w-2xl relative z-10 overflow-hidden border border-white"
+      >
+        <div class="px-10 py-8 border-b border-slate-50 flex justify-between items-center">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 tracking-tight">
+              {{ isEditing() ? 'Edit Group' : 'New Category' }}
+            </h3>
+            <p class="text-[10px] text-slate-400 uppercase tracking-widest font-black mt-0.5">
+              Define product group
+            </p>
+          </div>
           <button
-            class="flex-1 px-6 py-4 text-sm font-bold text-slate-400 hover:text-slate-900 transition-all rounded-2xl"
+            (click)="closeModel()"
+            class="text-slate-400 hover:text-slate-900 p-2 hover:bg-slate-50 rounded-full transition-all"
           >
-            Discard
-          </button>
-          <button
-            class="flex-1 bg-slate-900 text-white px-6 py-4 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200"
-          >
-            Save Group
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
           </button>
         </div>
+
+        <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="p-10 space-y-6">
+          <div class="grid grid-cols-2 gap-x-8 gap-y-5">
+            <div class="space-y-5">
+              <div>
+                <label
+                  class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+                  >Display Name</label
+                >
+                <input
+                  type="text"
+                  formControlName="displayName"
+                  placeholder="e.g. Vegetables"
+                  class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:border-blue-500 outline-none text-sm transition-all font-bold"
+                />
+              </div>
+
+              <div>
+                <label
+                  class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+                  >Tagline</label
+                >
+                <input
+                  type="text"
+                  formControlName="tagline"
+                  placeholder="Fresh from the farm"
+                  class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:border-blue-500 outline-none text-sm transition-all"
+                />
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label
+                    class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+                    >Slug</label
+                  >
+                  <input
+                    type="text"
+                    formControlName="slug"
+                    placeholder="veg-01"
+                    class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:border-blue-500 outline-none text-xs transition-all font-mono text-blue-600"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+                    >Visibility</label
+                  >
+                  <select
+                    formControlName="visibility"
+                    class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:border-blue-500 outline-none text-sm transition-all font-bold appearance-none cursor-pointer"
+                  >
+                    <option value="PUBLIC">Public</option>
+                    <option value="HIDDEN">Hidden</option>
+                    <option value="ARCHIVED">Archived</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-5">
+              <div>
+                <label
+                  class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+                  >Icon Identifier</label
+                >
+                <div class="relative">
+                  <input
+                    type="text"
+                    formControlName="icon"
+                    placeholder="leaf-icon"
+                    class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:border-blue-500 outline-none text-sm transition-all"
+                  />
+                  <div class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-[10px] font-black text-slate-400 uppercase mb-2 tracking-widest"
+                  >SEO Description</label
+                >
+                <textarea
+                  formControlName="seoDescription"
+                  rows="4"
+                  placeholder="Brief summary for search engines..."
+                  class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:border-blue-500 outline-none text-sm transition-all resize-none"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-4 pt-4 border-t border-slate-50">
+            <button
+              type="button"
+              (click)="closeModel()"
+              class="flex-1 px-6 py-4 text-sm font-bold text-slate-400 hover:text-slate-900 transition-all rounded-2xl"
+            >
+              Discard
+            </button>
+            <button
+              type="submit"
+              [disabled]="categoryForm.invalid"
+              class="flex-1 bg-slate-900 text-white px-6 py-4 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 hover:bg-black disabled:opacity-50 transition-all"
+            >
+              {{ isEditing() ? 'Update Group' : 'Save Group' }}
+            </button>
+          </div>
+        </form>
       </div>
     </div>
-  </div>
+  }
 </div>

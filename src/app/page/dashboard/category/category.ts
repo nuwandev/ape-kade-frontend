@@ -1,15 +1,14 @@
-import { PageResponse } from 'models/index';
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, computed, inject, signal } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CategoryService } from '@app/services/category';
 import { ToastService } from '@app/services/toast';
-import { CategoryResponse } from 'models';
+import { CategoryRequest, CategoryResponse } from 'models';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-category',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './category.html',
   styleUrl: './category.css',
 })
@@ -86,6 +85,40 @@ export class Category {
   onSearch($event: Event) {
     this.searchQuery.set(($event.target as HTMLInputElement).value);
   }
+
+  onSubmit() {
+    if (!this.categoryForm.valid) return;
+
+    if (this.isEditing()) {
+      this.categoryService
+        .updateCategory(this.editingCategoryId()!, this.categoryForm.value as CategoryRequest)
+        .subscribe({
+          next: (res) => {
+            this.toast.show('Category updated successfully!', 'success');
+            this.loadCategories();
+            this.editingCategoryId.set(null);
+            this.closeModel();
+          },
+          error: (err) => {
+            this.toast.show(err?.error.message || 'Error updating category', 'error');
+          },
+        });
+      return;
+    }
+
+    this.categoryService.createCategory(this.categoryForm.value as CategoryRequest).subscribe({
+      next: (res) => {
+        this.toast.show('Category created successfully!', 'success');
+        this.loadCategories();
+        this.closeModel();
+      },
+      error: (err) => {
+        this.toast.show(err?.error.message || 'Error creating category', 'success');
+      },
+    });
+  }
+
+  onUpdate() {}
 
   openModel() {
     this.isModelOpen.set(true);
