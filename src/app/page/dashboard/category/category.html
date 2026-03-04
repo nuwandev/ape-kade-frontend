@@ -65,7 +65,7 @@
 
             <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
               <button
-                (click)="onUpdate()"
+                (click)="onUpdate(cat)"
                 class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,6 +78,7 @@
                 </svg>
               </button>
               <button
+                (click)="onDelete(cat.id)"
                 class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,10 +121,10 @@
         <div class="px-10 py-8 border-b border-slate-50 flex justify-between items-center">
           <div>
             <h3 class="text-xl font-bold text-slate-900 tracking-tight">
-              {{ isEditing() ? 'Edit Group' : 'New Category' }}
+              {{ isEditing() ? 'Edit Category' : 'New Category' }}
             </h3>
             <p class="text-[10px] text-slate-400 uppercase tracking-widest font-black mt-0.5">
-              Define product group
+              Define product Category
             </p>
           </div>
           <button
@@ -251,7 +252,7 @@
               [disabled]="categoryForm.invalid"
               class="flex-1 bg-slate-900 text-white px-6 py-4 rounded-2xl text-sm font-bold shadow-xl shadow-slate-200 hover:bg-black disabled:opacity-50 transition-all"
             >
-              {{ isEditing() ? 'Update Group' : 'Save Group' }}
+              {{ isEditing() ? 'Update Category' : 'Save Category' }}
             </button>
           </div>
         </form>

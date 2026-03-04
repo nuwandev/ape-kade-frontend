@@ -118,7 +118,31 @@ export class Category {
     });
   }
 
-  onUpdate() {}
+  onUpdate(cat: CategoryResponse) {
+    this.editingCategoryId.set(cat.id);
+    this.categoryForm.patchValue({
+      displayName: cat.displayName,
+      icon: cat.icon,
+      seoDescription: cat.seoDescription,
+      slug: cat.slug,
+      tagline: cat.tagline,
+      visibility: cat.visibility,
+    });
+    this.openModel();
+  }
+
+  onDelete(id: string) {
+    confirm('Are you sure you want to delete this category') &&
+      this.categoryService.deleteCategory(id).subscribe({
+        next: (res) => {
+          this.toast.show('Category deleted successfully', 'success');
+          this.loadCategories();
+        },
+        error: (err) => {
+          this.toast.show(err?.error.message || 'Error deleting category', 'error');
+        },
+      });
+  }
 
   openModel() {
     this.isModelOpen.set(true);
