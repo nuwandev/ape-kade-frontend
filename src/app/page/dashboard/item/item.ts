@@ -2,12 +2,12 @@ import { DecimalPipe, NgClass } from '@angular/common';
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PaginatorComponent } from '@app/component/paginator/paginator';
 import { CategoryService } from '@app/services/category';
 import { ItemService } from '@app/services/item';
 import { ToastService } from '@app/services/toast';
 import { CategoryResponse, ItemRequest, ItemResponse } from 'models';
 import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
+import { PaginatorComponent } from "@app/component/paginator/paginator";
 
 @Component({
   selector: 'app-item',

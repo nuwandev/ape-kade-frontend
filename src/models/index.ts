@@ -23,6 +23,15 @@ export interface CustomerResponse {
 
 export type CategoryVisibility = 'PUBLIC' | 'HIDDEN' | 'ARCHIVED';
 
+export interface CategoryRequest {
+  displayName: string;
+  tagline: string;
+  slug: string;
+  visibility: CategoryVisibility;
+  icon: string;
+  seoDescription: string;
+}
+
 export interface CategoryResponse {
   id: string;
   displayName: string;
